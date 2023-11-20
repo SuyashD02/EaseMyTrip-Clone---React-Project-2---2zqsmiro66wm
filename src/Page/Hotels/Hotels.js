@@ -72,11 +72,8 @@ function Hotels(){
               <DatePicker
                 selected={isSelectedDay}
                 onChange={(date)=>setSelectedDay(date)}
-                // dateFormat={"dddd"}
                 customInput={<CustomInput/>}
-                // onChange={(date) => setDepartureDate(moment(date).format('dddd'))}
                 
-                // dateFormat={(date) => moment(date).format('dddd')}
               />
             </div>
             
