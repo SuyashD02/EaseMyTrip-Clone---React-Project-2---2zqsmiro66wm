@@ -1,0 +1,111 @@
+.searchBarHotel{
+    display: flex;
+  
+    height: 7vh;
+    width: 86vw;
+    border-radius: 5px;
+    align-items: center;
+    
+}
+.searchBarHotelHeaders{
+    background-color: #2f81ed;
+    background-image: linear-gradient(to right, #2F80ED, #56CCF2);
+    height: 10vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.searchBHedersHotel{
+    
+    background-color: #fff;
+    border-radius: 5px;
+       width: 25vw;
+       height: 7vh;
+       display: flex;
+       flex-direction: column;
+       justify-content: center;
+}
+.searchFromHotel{
+    width: 24vw;
+    margin-left: 10px;
+   
+    height: 6vh;
+    
+
+}
+.inputFormSectionHotel{
+    height: 3vh;
+    
+    width: 23vw;
+    border: none;
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+}
+.formSearchBoxHotel{
+   margin-left: 1px;
+   width: 23vw;
+   border: none;
+}
+.headingInputHotel{
+    font-size: 12px;
+}
+.searchCheckIn{
+    background-color: #fff;
+    width: 14vw;
+    height: 7vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 1.5%;
+   
+}
+.searchCheckInClick{
+    height: 6vh;
+    width: 13vw;
+    margin-left: 10px;
+}
+.searchCheckOutClick{
+    height: 6vh;
+    width: 13vw;
+    margin-left: 10px;
+}
+.searchCheckOut{
+    background-color: #fff;
+    width: 14vw;
+    height: 7vh;
+    display: flex;
+    flex-direction: column;
+    
+    justify-content: center;
+}
+.searchRooms{
+   
+    background-color: #fff;
+    border-radius: 5px;
+    width: 18vw;
+    height: 7vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 1.5%;
+}
+.searchRoomsClick{
+    
+    height: 6vh;
+    width: 17vw;
+    margin-left: 10px;
+}
+.searchButtonHotel{
+    height: 7vh;
+    width: 8vw;
+    background-image: linear-gradient(to right, #56CCF2);
+    margin-left: 1.5%;
+    display: flex;
+    align-items: center;
+    border: 1.5px solid white;
+    justify-content: center;
+    border-radius: 5px;
+    color: #fff;
+}

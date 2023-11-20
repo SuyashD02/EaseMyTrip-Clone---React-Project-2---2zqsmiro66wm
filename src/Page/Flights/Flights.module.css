@@ -1,0 +1,106 @@
+
+.flightBooking{
+    background-color: #2f81ed;
+    background-image: linear-gradient(to right, #2F80ED, #56CCF2);
+   width: 100vw;
+   height: 40vh;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+}
+.headSearchbar{
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+    height: 5vh;
+    gap: 64%;
+  
+}
+.buttonFlightWay{
+    display: flex;
+    gap: 10px;
+    margin-left:5%;
+}
+.searchLowestH1{
+    float: right;
+    font-size: 20px !important;
+    color: #fff;
+    font-weight: 600;
+    width: 200px;
+    height: 5vh;
+    
+}
+.searchBar{
+    background-color: #fff;
+    height: 12vh;
+    width: 90vw;
+    display: flex;
+}
+.searchFrom{
+    height: 12vh;
+    width: 20vw;
+}
+.searchTo{
+    height: 12vh;
+    width: 20vw;
+    
+}
+.searchDeparture{
+    height: 12vh;
+    width: 12vw;
+    
+}
+.searchReturn{
+    height: 12vh;
+    width: 12vw;
+   
+}
+.searchTraveller{
+    height: 12vh;
+    width: 12vw;
+    
+}
+.searchButton{
+    height: 12vh;
+    width: 13.8vw;
+    background-color: #ef6614;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+}
+.swapIcon{
+   height: 4.5vh;
+   margin-left: -16px;
+   margin-top: 30px;
+}
+.inputFormSection{
+    width: 19vw;
+    height: 8vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.formSearchBox{
+    height: 7vh;
+    width: 95%;
+    border: 0.5px solid lightgray;
+    border-radius: 5px;
+
+}
+
+/* fo To Modal */
+.inputToSection{
+    width: 19vw;
+    height: 8vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.toSearchBox{
+    height: 7vh;
+    width: 95%;
+    border: 0.5px solid lightgray;
+    border-radius: 5px;
+}

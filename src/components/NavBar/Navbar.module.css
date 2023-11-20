@@ -1,0 +1,250 @@
+.navbarEase{
+    height: 95px;
+    width: 100vw;
+    margin-top:-22px;
+    display: flex;
+    flex-direction: row;
+}
+.navContent{
+    width: 100vw;
+    height: 14vh;
+    display: flex;
+    gap: 20px;
+    
+}
+.navClickSection{
+    height: 14vh;
+    width: 60vw;
+    margin-left: 10%;
+    display: flex;
+}
+.navLogoSection{
+    width: 10vw;
+    height: 14vh;
+}
+.logoEase{
+    width: 115px;
+    height: 115px;
+}
+.navRouteContent{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* background-color: aqua; */
+    width: 60%;
+
+}
+.clickSection{
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    gap: 10px;
+    /* background-color: aquamarine; */
+    width: 100%;
+   
+}
+/* Text Styles */
+.clickH3{
+    font-weight: 100;
+    font-size: 15px;
+}
+.clickH2{
+    font-size: 3rem;
+    color: lightgray;
+}
+.joinIcon{
+    width: 50px;
+    height: 100px;
+}
+.navJoinSection{
+  
+    display: flex;
+    justify-content: center;
+    width: 10vw;
+
+
+
+}
+.navUser{
+    
+    width: 29vw;
+}
+.navUserInfo{
+    background-color: chocolate;
+    width: 28vw;
+    height: 5vh;
+    
+}
+
+/* my Account */
+
+.myhelp{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+    height: 5vh;
+    margin-top: 1.5em;
+    margin-left: 2em;
+    gap: 10px;
+}
+.myAcount{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    width: 200px;
+    height: 34px;
+    margin-top: 0.1em;
+    margin-left: 55%;
+    gap: 10px;
+    /* background-color: aqua; */
+
+}
+
+.userIconNav{
+    width: 30px; /* Width of the circular container */
+    height: 30px; /* Height of the circular container */
+    background-color: white; /* White background color for the circle */
+    border-radius: 50%; /* Make the container circular */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    /* margin-top: 4em;
+    margin-left: 15em; */
+}
+.iconMan{
+    margin-top: 35px;
+    margin-right: 17px;
+    width: 350;
+}
+.accountBox{
+    border: 2px solid black;
+    box-shadow: 1px 2px 5px black;
+    background-color: white;
+    border: none;
+    border-radius: 5px;
+    height: 20vh;
+    margin-left: -65px;
+
+}
+.dropdownContent {
+    width: 150px; 
+    margin-top: 2em;
+}
+.dropdownContent {
+    position: absolute;
+    display: none;
+}
+.myAcount:hover .dropdownContent {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    height: auto;
+}
+
+/* 24x7 Helpline */
+
+.dropdownhelpContent {
+    width: 140px; 
+    margin-top: 2em;
+}
+.dropdownhelpContent {
+    position: absolute;
+    display: none;
+}
+.myhelp:hover .dropdownhelpContent {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    height: auto;
+   
+   
+}
+.myhelp{
+    cursor: pointer;
+}
+.navAcount{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    height: 4vh;
+}
+
+.helpIconNav{
+    width: 30px; /* Width of the circular container */
+    height: 30px; /* Height of the circular container */
+    background-color: white; /* White background color for the circle */
+    border-radius: 50%; /* Make the container circular */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    /* margin-top: 4em;
+    margin-left: 15em; */
+}
+.help{
+    margin-top: 35px;
+    margin-right: 77px;
+    width: 355px;
+}
+.helpbox{
+    border: 2px solid black;
+    box-shadow: 1px 2px 5px black;
+    background-color: white;
+    border: none;
+    border-radius: 5px;
+    height: 12vh;
+    margin-left: -65px;
+}
+.navhelp{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    height: 4vh;
+}
+
+.dividerLogin{
+    margin-top: 5px;
+}
+.avatar{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 5px;
+}
+.loginBtnSection{
+  display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 5vh;
+    margin-top: 5px;
+    
+}
+.btnLogin{
+    height: 5vh;
+    width: 12vw;
+    border-radius: 5px;
+    background-color: #fff;
+   font-size: 13px;
+   font-weight: 600;
+   cursor: pointer;
+    color: #ef6614;
+    border: 1px solid #ef6614;
+}
+.tellNo24x7{
+    height: 5vh;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+.divider24x7{
+    margin-top: 10px;
+}
+.helpEmail{
+    display: flex;
+    align-items: center;
+    height: 5vh;
+    cursor: pointer;
+}
