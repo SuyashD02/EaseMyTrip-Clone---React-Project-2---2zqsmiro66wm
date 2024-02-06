@@ -2,10 +2,22 @@ import { useState } from "react";
 import React from "react";
 import Classes from "./Navbar.module.css";
 import Avatar from '@mui/material/Avatar';
-import Divider from '@mui/material/Divider';
+import { Box, Divider, Modal } from "@mui/material";
+import { Link,NavLink } from "react-router-dom";
+import ListItemButton from "@mui/material/ListItemButton";
+import { Height } from "@mui/icons-material";
+import { useAuth } from "../Context";
+import ModalLogin from "./ModalLogin";
+import { useNavigate } from "react-router-dom";
 
 function Navbar() {
     const [isDropdownOpen, setDropdownOpen] = useState(false);
+    const UserIcon = localStorage.getItem("photo");
+    const UserName = localStorage.getItem("userName");
+    const navigate = useNavigate();
+    const {
+      openLogin, setOpenLogin,isLoggedIn,setIsLoggedIn,
+    } = useAuth();
     const [isDropdownhelpOpen, setDropdownhelpOpen] = useState(false);
     const openDropdown = () => {
       setDropdownOpen(true);
@@ -21,29 +33,48 @@ function Navbar() {
       const closeDropdownhelp = () => {
         setDropdownhelpOpen(false);
       };
+      const handleLoginLogout = () => {
+        if (isLoggedIn) {
+          localStorage.removeItem('token');
+          setIsLoggedIn(false);
+          navigate("/");
+        }
+      };
+      const handleMyBooking=()=>{
+        navigate("/mybooking")
+      }
+      
+      const handleOpenLogin= () => setOpenLogin(true);
   return (
     <div className={Classes.navbarEase}>
       <div className={Classes.navClickSection}>
         <div className={Classes.navContent}>
           <div className={Classes.navLogoSection}>
+            <NavLink to="/">
             <img
               className={Classes.logoEase}
               src="https://www.easemytrip.com/images/brandlogo/emtlogo_new6.svg"
               alt="logo Image"
             />
+            </NavLink>
           </div>
           <div className={Classes.navRouteContent}>
             <div className={Classes.clickSection}>
-              <h3 className={Classes.clickH3}>FLIGHTS</h3>
-              <small className={Classes.clickH2}>|</small>
-              <h3 className={Classes.clickH3}>HOTELS</h3>
-              <h2 className={Classes.clickH2}>|</h2>
-              <h3 className={Classes.clickH3}>TRAINS</h3>
-              <h2 className={Classes.clickH2}>|</h2>
-              <h3 className={Classes.clickH3}>BUS</h3>
-              <h2 className={Classes.clickH2}>|</h2>
-              <h3 className={Classes.clickH3}>HOLIDAYS</h3>
-              
+              <Link className={Classes.linkSection} to={"/"}>
+              <h3 className={Classes.clickFLIGHTSH3}>FLIGHTS</h3>
+              </Link>
+              <Divider orientation="vertical"  style={{"height":"40%"}} />
+              <Link className={Classes.linkSection} to={"/hotelhome"}>
+              <h3 className={Classes.clickHOTELSH3}>HOTELS</h3>
+              </Link>
+              <Divider orientation="vertical" style={{"height":"40%"}} />
+              <Link className={Classes.linkSection} to={"/train"}>
+              <h3 className={Classes.clickTRAINSH3}>TRAINS</h3>
+              </Link>
+              <Divider orientation="vertical" style={{"height":"40%"}} />
+              <Link className={Classes.linkSection} to={"/bus"}>
+              <h3 className={Classes.clickBUSH3}>BUS</h3>
+              </Link>
             </div>
           </div>
           <div className={Classes.navJoinSection}>
@@ -56,44 +87,6 @@ function Navbar() {
         </div>
       </div>
       <div className={Classes.navUser}>
-        <div className={Classes.navUserInfo}>
-        <div className={Classes.myhelp}
-        onMouseEnter={openDropdownhelp}
-        onMouseLeave={closeDropdownhelp}
-        >
-            
-          <div className={Classes.helpIconNav}>
-            <img
-              className={Classes.help}
-              src="https://www.easemytrip.com/images/common/home-sub-sprite.png"
-              alt="profile"
-            />
-          </div>
-          <div className={Classes.navhelp}>
-          <p>24x7 Helpline</p>
-                {isDropdownhelpOpen && (
-                  <div className={Classes.dropdownhelpContent}
-                  onMouseEnter={openDropdownhelp}
-                    onMouseLeave={closeDropdownhelp}
-                    >
-                    <div className={Classes.helpbox}>  
-                    <div className={Classes.tellNo24x7}>
-                    <p className={Classes.telNo}>Tel: 010 - 49313213</p>
-                    </div>
-                    <Divider className={Classes.divider24x7}/>
-                    <div className={Classes.helpEmail}>
-                    <p>Care@gmail.com</p>
-                    </div>
-                   
-                    </div> 
-                  </div>
-                )}
-          </div>
-        
-      </div>
-      <div></div>
-        </div>
-      
         <div className={Classes.myAcount}
         onMouseEnter={openDropdown}
         onMouseLeave={closeDropdown}
@@ -107,7 +100,7 @@ function Navbar() {
             />
           </div>
           <div className={Classes.navAcount}>
-          <p>My Account</p>
+          <p>{isLoggedIn? UserName:"My Account"}</p>
                 {isDropdownOpen && (
                   <div className={Classes.dropdownContent}
                   onMouseEnter={openDropdown}
@@ -115,19 +108,32 @@ function Navbar() {
                     >
                     <div className={Classes.accountBox}>
                       <div className={Classes.avatar}>
-                      <Avatar/>
+                      {isLoggedIn? 
+                      <Avatar src={UserIcon}/>
+                    :<Avatar/>}
                         </div>  
                     <div className={Classes.loginBtnSection}>
-                    <button className={Classes.btnLogin}>LOGIN OR SIGNUP</button>
+                    {isLoggedIn? UserName:<button className={Classes.btnLogin} onClick={handleOpenLogin}>LOGIN OR SIGNUP</button>}
                     </div>
                     
                     <Divider className={Classes.dividerLogin}/>
-                    <p>My Booking</p>
-                    <p>Print/Cancel Booking</p>
+                    <div className={Classes.dropMyBookings}>
+                      <ListItemButton onClick={handleMyBooking}>
+                      <p className={Classes.bookingP}>My Booking</p>
+                      </ListItemButton>
+                    <ListItemButton onClick={handleLoginLogout}>
+                    <p className={Classes.bookingP} >Log Out</p>
+                    </ListItemButton>
+                    
+                    </div>
                     </div> 
+                    
                   </div>
+                  
                 )}
+                {openLogin &&(<ModalLogin/>)}
           </div>
+          
         </div>
       </div>
       

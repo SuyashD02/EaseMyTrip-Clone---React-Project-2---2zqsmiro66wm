@@ -1,0 +1,476 @@
+.BusBooking{
+    background-color: #2f81ed;
+    background-image: linear-gradient(to right, #2F80ED, #56CCF2);
+    width: 100%;
+    height: 30vh;
+    display: flex;
+    gap:10px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.searchBarBus{
+    background-color: #fff;
+    height: 10vh;
+    width: 75%;
+    display: flex;
+    gap:4.4px;
+    overflow: hidden;
+    border-radius: 6px;
+}
+.mainDivBusSearch{
+    height: 100%;
+    width: 27%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.mainDivBusSearch:hover{
+   background-color: #bfdef85d;
+}
+.searchFromBus{
+    height: 90%;
+    width: 95%;
+}
+.pInputBus{
+    font-weight: 500;
+    color: #737373;
+    font-size: 14px;
+}
+.swapDiv{
+    width: 2%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+ }
+ .searchToBus{
+    height: 90%;
+    width: 95%;
+ }
+ .searchDepartureBus{
+    height: 100%;
+    width: 22%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+ }
+ .searchDepartureBus:hover{
+   background-color: #bfdef85d;
+ }
+ .inputBus{
+    width: 100%;
+    border: 0.5px solid lightgray;
+    border-radius: 5px;
+    margin-top: 5px;
+    font-size: 19px;
+    font-weight: 600;
+    color: #000;
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
+ }
+ .inputBus:focus{
+    outline: none;
+ }
+ .busOfersBoxes{
+    height: 95%;
+    width: 22%;
+  box-sizing: border-box; 
+  flex: 1 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 10px;
+  background-color: rgba(250, 253, 255, 1);
+  box-shadow: 0 0 7px rgb(0 -1 6 / 6%) inset;
+  border-radius: 15px;
+  border: 1px solid #F5F5F5;
+ }
+
+ .BusSearchSection{
+    background-color: #2f81ed;
+    background-image: linear-gradient(to right, #2F80ED, #56CCF2);
+    width: 100%;
+    height: 12vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+ }
+ .searchBarBusDiv{
+    height: 50%;
+    width: 80%;
+    display: flex;
+    overflow: hidden;
+    gap: 20px;
+    border-radius: 6px;
+ }
+ .mainDivBusRecordSearch{
+    height: 100%;
+    width: 25%;
+    display: flex;
+    border-radius: 5px;
+    justify-content: center;
+    align-items: center;
+    background-color: hsla(0,0%,100%,.1);
+ }
+ .searchFromBusRecord{
+    height: 90%;
+    width: 95%;
+ }
+ .searchToBusRecord{
+    height: 90%;
+    width: 95%;
+ }
+ .departureDateBus{
+    display: flex;
+    justify-content: center;
+    border-radius: 5px;
+    align-items: center;
+    height: 100%;
+    width: 21%;
+    background-color: hsla(0,0%,100%,.1);
+ }
+ .searchButtonBusRecords{
+    height: 100%;
+    width: 100%;
+    background-image: linear-gradient(to right, #56CCF2);
+    margin-left: 1.5%;
+    display: flex;
+    align-items: center;
+    border: 1.5px solid white;
+    justify-content: center;
+    border-radius: 50px;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 12px 5px;
+    cursor: pointer;
+ }
+ .inputBusDetail{
+    width: 80%;
+    border: 0.5px solid lightgray;
+    border-radius: 5px;
+    margin-top: 5px;
+    font-size: 16px;
+    color: #fff;
+    border: none;
+    background-color: hsla(0,0%,100%,.1);
+    
+ }
+ .inputBusDetail:focus{
+    outline: none;
+ }
+ .BusDataBox{
+    border: 1px solid #b8d0e5;
+    background-color: #fff;
+    width: 100%;
+    height: 100%;
+    margin-top: 20px;
+    border: none;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+ }
+ .BusDataBox:hover{
+    box-shadow: 0 0 4px rgba(0,0,0,.25);
+ }
+ .aminity:hover{
+    color: #2196f3;
+    border-bottom: 3px solid #2196f3;
+}
+
+.aminity{
+   cursor: pointer;
+}
+/* Open Modal */
+.modalSeatSection{
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   width: 75%;
+   height: 90%;
+   border: none;
+   border-radius: 5px;
+   box-shadow: 1px 2px 5px black;
+   background-color: white;
+   padding: 4;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+.selectSeatBus{
+   background: url(https://bus.easemytrip.com/new_img/bus-seat-sprite.png) -99px -93px no-repeat;
+    width: 70px;
+    height: 32px;
+    padding: 0;
+    text-align: center;
+    line-height: 30px;
+    font-size: 8px;
+    font-weight: 800;
+    color: #000;
+    cursor: pointer;
+
+}
+.selectedSeatBus{
+   background: url(https://bus.easemytrip.com/new_img/bus-seat-sprite.png) -337px -93px no-repeat;
+   width: 70px;
+    height: 32px;
+    text-align: center;
+    line-height: 30px;
+    font-size: 8px;
+    font-weight: 800;
+    color: #000;
+    cursor: pointer;
+}
+.selectedSeatBusCh{
+   background: url(https://bus.easemytrip.com/new_img/bus-seat-sprite.png) -171px -49px no-repeat;
+   width: 32px;
+   height: 31px;
+   text-align: center;
+   line-height: 30px;
+   font-size: 8px;
+   font-weight: 800;
+   color: #000;
+   cursor: pointer;
+}
+.selectSeatBusCh{
+   background: url(https://bus.easemytrip.com/new_img/bus-seat-sprite.png) -58px -49px no-repeat;
+    width: 32px;
+    height: 31px;
+    text-align: center;
+    line-height: 30px;
+    font-size: 8px;
+    font-weight: 800;
+    color: #000;
+    cursor: pointer;
+}
+/* .selectedBusSeat{
+   background-color: lawngreen;
+} */
+
+.closeBtnBusSeats{
+   width: 11px;
+   height: 11px;
+   background: url(https://www.easemytrip.com/images/new-login/home-sub-sprite.png) no-repeat -96px -24px;
+   opacity: .3;
+   background-size: 200px 39px;
+   position: absolute;
+   top: 18px;
+   right: 25px;
+   cursor: pointer;
+}
+.busDataPage{
+   margin-top: 12px;
+    width: 100%;
+    padding: 15px;
+    border-radius: 4px;
+    background-color: #FFF;
+    border: 1px solid #E3DFDF;
+    position: sticky;
+}
+.bookingBusData{
+   float: left;
+   width: 100%;
+   border: 1px solid #b8d0e5;
+   background: #ffffff;
+   border-radius: 4px;
+   box-shadow: 0 0 6px rgb(64 64 64 / 21%);
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+}
+.bookingHeader{
+   width: 100%;
+   font-size: 18px;
+   color: #1a1a1a;
+   height: 50px;
+   line-height: 50px;
+   background: linear-gradient(90deg, #c7dffe 0%, #d8f2ff 100%);
+   border-top-left-radius: 4px;
+   border-top-right-radius: 4px;
+   display: flex;
+   gap: 5px;
+}
+.flightbookingImg{
+   float: left;
+   content: " ";
+   background: url(https://bus.easemytrip.com/NewTravellerCss/img/bus-s.png);
+   width: 32px;
+   height: 32px;
+   margin-top: 8px;
+   margin-left: 10px;
+}
+.BusBookingDetails{
+   width: 100%;
+   float: left;
+   border: 1px solid #dad6d6;
+   margin-bottom: 0px;
+   border-radius: 4px;
+   background-color:#fff ;
+   margin-top: 15px;
+   box-shadow: 0 0 3px rgba(0,0,0,.2);
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   margin-bottom: 15px;
+}
+.flightbookDetailImg{
+   background: url(https://flight.easemytrip.com/Content/img/traveller/img-sprite.png);
+   width: 42px;
+   height: 20px;
+   background-position: -100px -6px;
+}
+.busDetailBox{
+   flex-basis: 35%;
+    flex-grow: 0;
+    max-width: 35%;
+    margin-top: 12px;
+    border-left: 1px solid #e4e4e4;
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+
+}
+.busDetailBoxDestination{
+   flex-basis: 65%;
+    flex-grow: 0;
+    max-width: 65%;
+    display: flex;
+}
+.busDestinationLImg{
+   flex-basis: 5.4443%;
+    flex-grow: 0;
+    max-width: 5.4443%;
+}
+.lTopImgSection{
+   border: 1px solid #888;
+    display: block;
+    width: 9px;
+    border-radius: 50%;
+    height: 9px;
+    margin: 2px auto 0 auto;
+    clear: both;
+}
+.dotedLineLImg{
+   border-right: 1px dashed #888;
+    height: 84px;
+    display: block;
+    margin: 0 auto;
+    width: 1px;
+    clear: both;
+}
+.lEndImgSection{
+   border: 2px solid #666;
+    display: block;
+    width: 7px;
+    border-radius: 50%;
+    height: 7px;
+    margin: 0 auto;
+    clear: both;
+    background: #888;
+}
+.busDestinationSection{
+   flex-basis: 93.5666%;
+    flex-grow: 0;
+    max-width: 93.5666%;
+}
+.busBookingAmont{
+   float: left;
+   width: 100%;
+   border: 1px solid #b8d0e5;
+   background: #ffffff;
+   border-radius: 4px;
+   box-shadow: 0 0 6px rgb(64 64 64 / 21%);
+}
+.busBokkingAmountHeader{
+   width: 100%;
+   background: linear-gradient(90deg, #c7dffe 0%, #d8f2ff 100%);
+   border-top-left-radius: 4px;
+   border-top-right-radius: 4px;
+}
+.personalDetailBus{
+   float: left;
+    width: 100%;
+    /* border: 1px solid #b8d0e5;
+    background: #ffffff; */
+    margin-top: 40px;
+    border-radius: 4px;
+    box-shadow: 0 0 6px rgb(64 64 64 / 21%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    background-color: #fff;
+}
+.PersbookingImg{
+   float: left;
+    content: " ";
+    background: url(https://flight.easemytrip.com/Content/img/traveller/img-sprite.png);
+    width: 35px;
+    height: 35px;
+    background-position: -92px -85px;
+    margin-top: 8px;
+    margin-left: 10px;
+}
+.personalDetail{
+   box-shadow: 0 1px 4px 0 rgba(0,0,0,.21);
+    width: 95%;
+    height: 100%;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #b8d0e5;
+    border-radius: 5px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.persnolDataBusFName{
+   height: 30px;
+}
+.persnolDataBusFName:focus{
+   outline: none;
+
+}
+.persnolDataBusLName{
+   height: 30px;
+}
+.persnolDataBusLName:focus{
+   outline: none;
+}
+.PersPaymentmg{
+   float: left;
+   content: " ";
+   background: url(https://bus.easemytrip.com/NewTravellerCss/img/img-sprite-v2.png);
+   width: 35px;
+   height: 35px;
+   background-position: -227px -3px;
+   margin-top: 11px;
+}
+.paymentLeftSection{
+   width: 28%;
+    float: left;
+    padding: 0;
+    background: #f8f8f8;
+    border-right: 1px solid #ccc;
+    height: 100vh;
+}
+.paymentUpiInput{
+   margin-bottom: 2%;
+   height: 40px;
+   line-height: 40px;
+   width: 100%;
+   border: 1px solid #d7d5d5;
+   padding-left: 2%;
+   color: #000;
+   font-size: 14px;
+   border-radius: 4px
+}
+.paymentUpiInput:focus{
+   outline: none;
+}
