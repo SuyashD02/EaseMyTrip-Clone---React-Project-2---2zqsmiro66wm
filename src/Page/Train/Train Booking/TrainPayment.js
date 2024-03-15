@@ -24,7 +24,8 @@ function TrainPayment() {
     let isValid = false;
 
     if (isUPIOption) {
-      isValid = event.target.value.trim() !== "";
+      const isValidEmail = /^[^\s@]+@[^\s@]+$/.test(event.target.value.trim());
+      isValid = isValidEmail;
     } else if (isDebitCreditCardOption) {
       // Add validation logic for Debit/Credit Card fields
       isValid = event.target.value.trim() !== "";
@@ -141,6 +142,7 @@ function TrainPayment() {
                       <div className="w-[100%] mt-[6px] flex">
                         <div className="w-[49%]">
                           <input
+                          type="email"
                             className={Classes.paymentUpiInput}
                             onChange={handleInputChange}
                           />

@@ -23,6 +23,10 @@ function TrainBooking() {
   const departureDay = moment(traindepartureDate).format("dddd");
   const departureDate = moment(traindepartureDate).format("DD MMM YYYY");
   const navigate = useNavigate();
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [firstNameError, setFirstNameError] = useState("");
+  const [lastNameError, setLastNameError] = useState("");
   function guestNameInput(e) {
     const firstSet = e.target.value;
     setGuestName(firstSet);
@@ -62,6 +66,14 @@ function TrainBooking() {
   }, []);
 
   const handlePayment = (trainfare, bookingType, trainId) => {
+    if (!firstName.trim()) {
+      setFirstNameError("First Name is required");
+      return;
+    }
+    if (!lastName.trim()) {
+      setLastNameError("Last Name is required");
+      return;
+    }
     setFare(trainfare);
     setBookingId(trainId);
     setBookingType(bookingType);
@@ -177,10 +189,16 @@ function TrainBooking() {
                     </label>
                     <input
                       type="text"
-                      value={guestName}
-                      onChange={guestNameInput}
+                      value={firstName}
+                      onChange={(e) => {
+                        setFirstName(e.target.value);
+                        setFirstNameError("");
+                      }}
                       className={Classes.persnolDataTrainFName}
                     />
+                    {firstNameError && (
+                      <p className="text-red-500 text-xs">{firstNameError}</p>
+                    )}
                   </div>
                   <div
                     style={{ display: "flex", flexDirection: "column" }}
@@ -189,10 +207,16 @@ function TrainBooking() {
                     <label className="text-[11px] font-bold">Last Name</label>
                     <input
                       type="text"
-                      value={guestLastName}
-                      onChange={guestLastNameInput}
                       className={Classes.persnolDataTrainLName}
+                      value={lastName}
+                      onChange={(e) => {
+                        setLastName(e.target.value);
+                        setLastNameError("");
+                      }}
                     />
+                    {lastNameError && (
+                      <p className="text-red-500 text-xs">{lastNameError}</p>
+                    )}
                   </div>
                 </div>
               </div>
@@ -229,7 +253,6 @@ function TrainBooking() {
                     </div>
                     
                 </div>
-                 <h3>{guestName}</h3>
             <div className="w-[100%] mt-[7px] max-[600px]:mb-[10px]">
               <p className="bg-[#ef6614] text-[#fff] text-[19px] h-[45px] cursor-pointer rounded-[40px] flex justify-center items-center"
               onClick={() =>

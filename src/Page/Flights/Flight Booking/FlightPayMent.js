@@ -24,9 +24,9 @@ function FlightPayMent() {
     let isValid = false;
 
     if (isUPIOption) {
-      isValid = event.target.value.trim() !== "";
+      const isValidEmail = /^[^\s@]+@[^\s@]+$/.test(event.target.value.trim());
+      isValid = isValidEmail;
     } else if (isDebitCreditCardOption) {
-      // Add validation logic for Debit/Credit Card fields
       isValid = event.target.value.trim() !== "";
     }
 
@@ -35,7 +35,7 @@ function FlightPayMent() {
 
   const fetchPaymentData = () => {
     if (allFieldsFilled) {
-      // Your existing fetchPaymentData logic
+     
       const api =
         "https://academics.newtonschool.co/api/v1/bookingportals/booking";
 
@@ -141,6 +141,7 @@ function FlightPayMent() {
                       <div className="w-[100%] mt-[6px] flex">
                         <div className="w-[49%]">
                           <input
+                          type="email"
                             className={Classes.paymentUpiInput}
                             onChange={handleInputChange}
                           />

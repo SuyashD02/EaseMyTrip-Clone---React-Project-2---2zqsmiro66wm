@@ -32,8 +32,19 @@ function HotelBooking() {
   const departureYearCheckOutDate = moment(isSelectedDayCheckOut).format(
     "YYYY"
   );
-
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [firstNameError, setFirstNameError] = useState("");
+  const [lastNameError, setLastNameError] = useState("");
   const handlePayment = (hotelfare, bookingType, hotelId) => {
+    if (!firstName.trim()) {
+      setFirstNameError("First Name is required");
+      return;
+    }
+    if (!lastName.trim()) {
+      setLastNameError("Last Name is required");
+      return;
+    }
     setFare(hotelfare);
     setBookingId(hotelId);
     setBookingType(bookingType);
@@ -181,10 +192,16 @@ function HotelBooking() {
                     </label>
                     <input
                       type="text"
-                      value={guestName}
-                      onChange={guestNameInput}
+                      value={firstName}
+                      onChange={(e) => {
+                        setFirstName(e.target.value);
+                        setFirstNameError("");
+                      }}
                       className={Classes.persnolDataFlightMobileNo}
                     />
+                    {firstNameError && (
+                      <p className="text-red-500 text-xs">{firstNameError}</p>
+                    )}
                   </div>
                   <div
                     style={{ display: "flex", flexDirection: "column" }}
@@ -193,10 +210,16 @@ function HotelBooking() {
                     <label className="text-[11px] font-bold">Last Name</label>
                     <input
                       type="text"
-                      value={guestLastName}
-                      onChange={guestLastNameInput}
+                      value={lastName}
+                      onChange={(e) => {
+                        setLastName(e.target.value);
+                        setLastNameError("");
+                      }}
                       className={Classes.persnolDataFlightEmail}
                     />
+                    {lastNameError && (
+                      <p className="text-red-500 text-xs">{lastNameError}</p>
+                    )}
                   </div>
                 </div>
               </div>

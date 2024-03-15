@@ -20,7 +20,19 @@ function BusBooking(){
         const navigate = useNavigate();
     const departureDay= moment(busdepartureDate).format("ddd");
     const departureDate= moment(busdepartureDate).format("DD MMM YYYY");
+    const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [firstNameError, setFirstNameError] = useState("");
+  const [lastNameError, setLastNameError] = useState("");
     const handlePayment = (busfare, bookingType, busId ,travelare) => {
+      if (!firstName.trim()) {
+        setFirstNameError("First Name is required");
+        return;
+      }
+      if (!lastName.trim()) {
+        setLastNameError("Last Name is required");
+        return;
+      }
       setFare(busfare);
       setBookingType(bookingType);
       setBookingId(busId);
@@ -163,11 +175,25 @@ function BusBooking(){
               <div className="w-[100%] h-[100%] mt-[20px] flex max-[600px]:flex-col flex-row gap-[30px]">
                 <div style={{ display: "flex", flexDirection: "column" }} className="w-[30%] max-[600px]:w-[98%] gap-[5px]">
                   <label className="text-[11px] font-bold">(First Name & (Middle name, if any)</label>
-                  <input type="text" className={Classes.persnolDataBusFName}/>
+                  <input type="text" className={Classes.persnolDataBusFName} value={firstName}
+                      onChange={(e) => {
+                        setFirstName(e.target.value);
+                        setFirstNameError("");
+                      }}/>
+                       {firstNameError && (
+                      <p className="text-red-500 text-xs">{firstNameError}</p>
+                    )}
                 </div>
                 <div style={{ display: "flex", flexDirection: "column" }} className="w-[35%] max-[600px]:w-[98%]  gap-[5px] mb-[10px]">
                   <label className="text-[11px] font-bold">Last Name</label>
-                  <input type="text" className={Classes.persnolDataBusLName}/>
+                  <input type="text" className={Classes.persnolDataBusLName}  value={lastName}
+                      onChange={(e) => {
+                        setLastName(e.target.value);
+                        setLastNameError("");
+                      }}/>
+                      {lastNameError && (
+                      <p className="text-red-500 text-xs">{lastNameError}</p>
+                    )}
                 </div>
               </div>
             </div>

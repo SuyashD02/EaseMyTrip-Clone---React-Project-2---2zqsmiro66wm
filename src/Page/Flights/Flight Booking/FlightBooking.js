@@ -22,6 +22,10 @@ function FlightBooking() {
   const departureDay = moment(flightdepartureDate).format("ddd");
   const departureDate = moment(flightdepartureDate).format("DD MMM YYYY");
   const navigate = useNavigate();
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [firstNameError, setFirstNameError] = useState("");
+  const [lastNameError, setLastNameError] = useState("");
   const fetchSingleFlightData = async () => {
     try {
       const projectID = "2zqsmiro66wm";
@@ -52,6 +56,14 @@ function FlightBooking() {
   }, []);
 
   const handlePayment = (flightfare, bookingType, flightId) => {
+    if (!firstName.trim()) {
+      setFirstNameError("First Name is required");
+      return;
+    }
+    if (!lastName.trim()) {
+      setLastNameError("Last Name is required");
+      return;
+    }
     setFare(flightfare);
     setBookingId(flightId);
     setBookingType(bookingType);
@@ -162,7 +174,15 @@ function FlightBooking() {
                     <input
                       type="text"
                       className={Classes.persnolDataFlightMobileNo}
+                      value={firstName}
+                      onChange={(e) => {
+                        setFirstName(e.target.value);
+                        setFirstNameError("");
+                      }}
                     />
+                    {firstNameError && (
+                      <p className="text-red-500 text-xs">{firstNameError}</p>
+                    )}
                   </div>
                   <div
                     style={{ display: "flex", flexDirection: "column" }}
@@ -172,7 +192,15 @@ function FlightBooking() {
                     <input
                       type="text"
                       className={Classes.persnolDataFlightEmail}
+                      value={lastName}
+                      onChange={(e) => {
+                        setLastName(e.target.value);
+                        setLastNameError("");
+                      }}
                     />
+                    {lastNameError && (
+                      <p className="text-red-500 text-xs">{lastNameError}</p>
+                    )}
                   </div>
                 </div>
               </div>
