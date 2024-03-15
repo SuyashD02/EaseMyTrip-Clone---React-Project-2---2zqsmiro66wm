@@ -4,9 +4,7 @@ import Classes from "./Flights.module.css";
 import Navbar from "../../components/NavBar/Navbar";
 import Divider from "@mui/material/Divider";
 import DatePicker from "react-datepicker";
-import { Avatar, Box, ListItemButton, Modal, Typography } from "@mui/material";
-import { Link } from "react-router-dom";
-import { Settings, Style } from "@mui/icons-material";
+
 import { useAuth } from "../../components/Context";
 import FlightsTo from "./Flight DropDown/FlightsTo";
 import FlightFrom from "./Flight DropDown/FlightsFrom";
@@ -51,7 +49,6 @@ function Flights() {
         );
         const data = await response.json();
         setOffers(data.data.offers);
-        console.log(data);
       } catch (error) {
         console.error("Error fetching offers:", error);
         setOffers([]);
@@ -136,7 +133,7 @@ function Flights() {
             </div>
           </div>
           {flightFromOpen && <FlightFrom onclose={handleFlightFormOpen} />}
-          <Divider orientation="vertical" />
+          <Divider orientation="vertical" className={Classes.divider} />
           <img
             className={Classes.swapIcon}
             src="https://www.easemytrip.com/Content/img/swipe_icon.svg"
@@ -162,7 +159,7 @@ function Flights() {
           </div>
           {flightToOpen && <FlightsTo onclose={handleFlightToOpen} />}
 
-          <Divider orientation="vertical" />
+          <Divider orientation="vertical" className={Classes.divider}/>
           <div className={Classes.searchDepartureFlight}>
             <div className={Classes.flighthomeDeparture}>
               <div className={Classes.departureHeading}>
@@ -177,7 +174,7 @@ function Flights() {
             </div>
           </div>
           
-          <Divider orientation="vertical" />
+          <Divider orientation="vertical" className={Classes.divider}/>
           <div className={Classes.searchTravellerFlight}>
             <div onClick={handleFlightTraveller} className={Classes.hotelChooseTraveller}>
               <div>
@@ -191,7 +188,7 @@ function Flights() {
             </div>
           </div>
           {flightTraveller && 
-          <div className="w-[15%] h-55 absolute bg-slate-50 mt-10 p-2 rounded ml-[55em] z-10 shadow-[0_8px_30px_rgb(0,0,0,0.12)]">
+          <div className="w-[15%] max-[600px]:w-[70%] h-55 absolute bg-slate-50 lg:mt-10 mt-[21em] p-2 rounded lg:ml-[55em] ml-[1em] z-10 shadow-[0_8px_30px_rgb(0,0,0,0.12)]">
             <div className=" w-[98%] flex flex-col gap-[5px]">
                 <div className="w-[100%] flex mb-[15px] mt-[5px] justify-between items-center">
                     <div className="flex flex-col justify-center">
@@ -234,7 +231,7 @@ function Flights() {
           }
 
           <div className={Classes.searchButtonFlight} onClick={handleSearch}>
-            <h3>SEARCH</h3>
+            <h3 className={Classes.h3Search}>SEARCH</h3>
           </div>
         </div>
       </div>
@@ -268,7 +265,7 @@ function Flights() {
         >
           Rails
         </p>
-        {/* <p onClick={() => handleOfferTypeChange("BUS")}>Bus</p> */}
+      
       </div>
       <div className={Classes.flightOffersSection}>
         {loading ? (
@@ -295,7 +292,7 @@ function Flights() {
           ))
         )}
       </div>
-      {/* same as hotel */}
+    
     </div>
   );
 }

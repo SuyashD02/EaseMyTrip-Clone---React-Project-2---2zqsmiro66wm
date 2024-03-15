@@ -4,22 +4,28 @@ import moment from "moment";
 import Divider from "@mui/material/Divider";
 import { useAuth } from "../../../components/Context";
 import { useNavigate } from "react-router-dom";
+import ModalLogin from "../../../components/NavBar/ModalLogin";
 function TrainData({ searchResultsTrain }) {
-  const { traindepartureDate,setTrainBookingId } = useAuth();
+  const { traindepartureDate,setTrainBookingId,openLogin, setOpenLogin } = useAuth();
   const departureDay = moment(traindepartureDate).format("ddd");
+  const jwtToken =localStorage.getItem('token');
   const departureDate = moment(traindepartureDate).format("DD MMM YYYY");
   const navigate = useNavigate();
   const handleBookBus=(id)=>{
+    if(jwtToken != null){
     setTrainBookingId(id);
     navigate("/trainBooking");
+    }else{
+      setOpenLogin(true);
+    }
   }
   return (
     <div className="h-[100%] w-[100%]">
       {searchResultsTrain.length > 0 ? (
         searchResultsTrain.map((trainApidata, index) => (
           <div key={index} className={Classes.trainDataSection}>
-            <div className=" bg-[#F2F9FF] p-[8px] w-[100%] rounded-[6px] flex">
-              <div className="w-[59%] ml-[5px] flex items-center justify-start text-[12px] gap-[5px] ">
+            <div className=" bg-[#F2F9FF] p-[8px] w-[100%] rounded-[6px] flex max-[600px]:flex-col">
+              <div className="w-[59%] max-[600px]:w-[100%] ml-[5px] flex items-center justify-start text-[12px] gap-[5px] ">
                 <span>{trainApidata.source}</span>
                 <img
                   className="w-[11px] h-[11px]"
@@ -27,7 +33,7 @@ function TrainData({ searchResultsTrain }) {
                 />
                 <span>{trainApidata.destination}</span>
               </div>
-              <div className="w-[40%] flex justify-end">
+              <div className="w-[40%] max-[600px]:w-[100%] flex justify-end max-[600px]:justify-start">
                 <ul className="flex justify-center gap-[6px] ">
                   <li className="text-[#737373] text-[11px] flex items-center">
                     Runs on :{" "}
@@ -49,7 +55,7 @@ function TrainData({ searchResultsTrain }) {
                   <p className="font-[600] text-[16px] text-[#000] w-[100%] flex">
                     {trainApidata?.trainName}
                   </p>
-                  <p className=" p-[5px] w-[35%] h-[4vh]  font-[500] text-[15px] text-[#313131] bg-[#F2F9FF] rounded-[3px] border border-solid border-[#B6D5F0] flex justify-center items-center">
+                  <p className=" p-[5px] w-[35%] max-[600px]:w-[70%] h-[4vh]  font-[500] text-[15px] text-[#313131] bg-[#F2F9FF] rounded-[3px] border border-solid border-[#B6D5F0] flex justify-center items-center">
                     {trainApidata?.trainNumber}
                   </p>
                 </div>
@@ -100,7 +106,7 @@ function TrainData({ searchResultsTrain }) {
               <div className="w-[98%] h-[100%] mb-[10px] text-[11px] mt-[10px] flex gap-[15px] flex-wrap">
                 {trainApidata?.coaches?.map((coach, i) => (
                   <div
-                    className="w-[15%] h-[15vh] bg-[#fefae5]  border border-[#f9f2b4] border-solid rounded-[5px] font-[500] text-[11px] flex flex-col justify-center items-center gap-[5px]"
+                    className="w-[15%] max-[600px]:w-[40%] h-[15vh] bg-[#fefae5]  border border-[#f9f2b4] border-solid rounded-[5px] font-[500] text-[11px] flex flex-col justify-center items-center gap-[5px]"
                     key={i}
                   >
                     <span className="font-[500] text-[12px]">
@@ -119,6 +125,7 @@ function TrainData({ searchResultsTrain }) {
                 ))}
               </div>
             </div>
+            {openLogin && <ModalLogin/>}
           </div>
         ))
       ) : (

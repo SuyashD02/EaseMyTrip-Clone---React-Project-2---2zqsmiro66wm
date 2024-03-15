@@ -38,7 +38,6 @@ const FlightFrom = ({ onclose }) => {
         .then((flightdata) => {
           const data = flightdata.data.airports;
           setAirportDetail(data);
-          console.log(data)
         });
     };
 
@@ -46,7 +45,7 @@ const FlightFrom = ({ onclose }) => {
   }, [airport]);
 
   return (
-    <div className="w-80 h-55 absolute bg-slate-50 mt-10 p-2 rounded ml-1 z-10 shadow-[0_8px_30px_rgb(0,0,0,0.12)]">
+    <div className="w-80 h-55 absolute bg-slate-50 lg:mt-10 mt-[5em] p-2 rounded ml-1 z-10 shadow-[0_8px_30px_rgb(0,0,0,0.12)]">
     <div className="flex flex-row gap-4 items-center">
     <img src="https://www.easemytrip.com/Content/img/icon-search.svg" className="items-center"/>
     <input className="w-11/12 p-2 border-none outline-none bg-slate-50" onChange={handleChange} />

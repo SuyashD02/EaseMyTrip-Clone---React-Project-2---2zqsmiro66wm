@@ -37,7 +37,6 @@ function FlightBooking() {
 
       if (response.ok) {
         const data = await response.json();
-        console.log(data);
         setFlightBookingDetailData(data?.data);
       } else {
         const errorData = await response.json();
@@ -61,9 +60,9 @@ function FlightBooking() {
   return (
     <div>
       <Navbar />
-      <div className="w-[100%] h-[100vh] bg-[#e8f2fa] flex justify-center">
-        <div className=" w-[90%] h-[100%] flex flex-row gap-[20px] justify-between">
-          <div className=" w-[70.5%] mt-[20px]">
+      <div className="w-[100%] h-[100vh] max-[600px]:h-auto bg-[#e8f2fa] flex justify-center">
+        <div className=" w-[90%] h-[100%] flex flex-row max-[600px]:flex-col gap-[20px] justify-between">
+          <div className=" w-[70.5%] max-[600px]:w-[100%] mt-[20px]">
             <div className={Classes.bookingFlightData}>
               <div className={Classes.bookingHeader}>
                 <div className={Classes.flightbookingImg}></div>
@@ -85,13 +84,13 @@ function FlightBooking() {
                         </span>
                       </div>
                     </div>
-                    <div className=" w-[100%] flex">
-                      <div className=" w-[25%] h-[100%] flex ">
+                    <div className=" w-[100%] max-[600px]:flex-col flex">
+                      <div className=" w-[25%] max-[600px]:w-[100%] h-[100%] flex ">
                         <span className="text-[16px] text-[#1e1f1f]">
                           {flightBookingDetailData?.flightID}
                         </span>
                       </div>
-                      <div className=" w-[75%] h-[100%] flex gap-[10px]">
+                      <div className=" w-[75%] max-[600px]:w-[100%] h-[100%] flex gap-[10px]">
                         <div className="w-[32%] h-[100%] flex flex-col items-center">
                           <div className="w-[80%]">
                             <div className="text-[24px] text-[#1a1a1a] font-[600] ">
@@ -152,10 +151,10 @@ function FlightBooking() {
               </div>
               <div className={Classes.personalDetail}>
                 <h3>Add Contact Details</h3>
-                <div className="w-[100%] h-[100%] mt-[20px] flex flex-row gap-[30px]">
+                <div className="w-[100%] h-[100%] mt-[20px] flex flex-row max-[600px]:flex-col gap-[30px]">
                   <div
                     style={{ display: "flex", flexDirection: "column" }}
-                    className="w-[30%] gap-[5px]"
+                    className="w-[30%] max-[600px]:w-[100%] gap-[5px]"
                   >
                     <label className="text-[11px] font-bold">
                       (First Name & (Middle name, if any)
@@ -167,7 +166,7 @@ function FlightBooking() {
                   </div>
                   <div
                     style={{ display: "flex", flexDirection: "column" }}
-                    className="w-[35%] gap-[5px]"
+                    className="w-[35%] max-[600px]:w-[100%] gap-[5px]"
                   >
                     <label className="text-[11px] font-bold">Last Name</label>
                     <input
@@ -179,7 +178,7 @@ function FlightBooking() {
               </div>
             </div>
           </div>
-          <div className="w-[26%] mt-[20px] flex flex-col">
+          <div className="w-[26%] max-[600px]:w-[100%] mt-[20px] flex flex-col">
             <div className={Classes.flightBookingAmont}>
               <div className={Classes.flighBokkingAmountHeader}>
                 <div className="text-[18px] text-[#1a1a1a] h-[50px] flex items-center ml-[10px]">

@@ -49,7 +49,6 @@ function Bus(){
         );
         const data = await response.json();
         setOffers(data.data.offers);
-        console.log(data);
       } catch (error) {
         console.error("Error fetching offers:", error);
         setOffers([]);
@@ -81,7 +80,7 @@ function Bus(){
                 <p className={Classes.pInputBus}>From</p>
               </div>
               <div>
-                <span className="text-[19px] font-[600] text-[#000] cursor-pointer flex items-center">
+                <span className="text-[19px] font-[600] text-[#000] max-[600px]:mb-[5px] cursor-pointer flex items-center">
                   {busCity}
                 </span>
               </div>
@@ -90,14 +89,14 @@ function Bus(){
           {busFromOpen && <BusFrom onClose={handleBusCityInput} />}
           <div className={Classes.swapDiv}>
           <div className="w-[100%] h-[30%] flex justify-center">
-              <Divider orientation="vertical" />
+              <Divider orientation="vertical" className={Classes.deviderBus}/>
             </div>
           <img
             className={Classes.swapTIcon}
             src="https://www.easemytrip.com/Content/img/swipe_icon.svg"
           />
           <div className="w-[100%] h-[30%] flex justify-center">
-              <Divider orientation="vertical" />
+              <Divider orientation="vertical" className={Classes.deviderBus}/>
             </div>
           </div>
           <div className={Classes.mainDivBusSearch}>
@@ -109,7 +108,7 @@ function Bus(){
                 <p className={Classes.pInputBus}>To</p>
               </div>
               <div>
-              <span className="text-[19px] font-[600] text-[#000] cursor-pointer flex items-center">
+              <span className="text-[19px] font-[600] text-[#000] max-[600px]:mb-[5px] cursor-pointer flex items-center">
                   {busToCity}
                 </span>
               </div>
@@ -117,7 +116,7 @@ function Bus(){
           </div>
           {busToOpen && <BusTo onClose={handleBusCityToInput} />}
 
-          <Divider orientation="vertical" />
+          <Divider orientation="vertical" className={Classes.deviderBus}/>
           <div className={Classes.searchDepartureBus}>
             <div className="w-[92%] h-[90%] flex justify-center">
               <div className="flex flex-col  w-[80%]">
@@ -134,13 +133,13 @@ function Bus(){
               
             </div>
           </div>
-          <div className="w-[20%] h-[100%] bg-[#ef6614] flex justify-center items-center text-[#fff] cursor-pointer" onClick={handleSearchTrain}>
-            <h3>SEARCH</h3>
+          <div className="w-[20%] max-[600px]:w-[90%] max-[600px]:rounded-[40px] h-[100%] lg:mt-[0] mt-[5px] lg:mb-[0] mb-[5px] bg-[#ef6614] flex justify-center items-center text-[#fff] cursor-pointer" onClick={handleSearchTrain}>
+            <h3 className=" max-[600px]:h-[4vh] flex items-center ">SEARCH</h3>
           </div>
         </div>
       </div>
       <div className="h-[5vh] mt-[25px] flex justify-center items-center">
-        <div className="h-[90%] w-[15%] flex justify-center items-center">
+        <div className="h-[90%] w-[15%] max-[600px]:w-[100%] flex justify-center items-center">
           <h3 className="text-[28px] font-[700]">Exclusive Offers</h3>
         </div>
       </div>
@@ -150,8 +149,8 @@ function Bus(){
         ) : (
           offers.map((offer) => (
             <div className={Classes.busOfersBoxes} key={offer.id}>
-              <div className="h-[95%] w-[95%] mt-[7px]">
-                <div className="h-[70%] w-[100%] rounded-[10px]">
+              <div className="h-[95%] w-[95%] mt-[7px] max-[600px]:flex max-[600px]:flex-col ">
+                <div className="h-[70%] max-[600px]:h-[50%] w-[100%] rounded-[10px]">
                   <img
                     className="w-[100%] h-[100%] rounded-[10px]"
                     src={offer.heroUrl}

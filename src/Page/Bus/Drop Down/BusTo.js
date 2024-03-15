@@ -72,7 +72,7 @@ const BusTo = ({ onClose }) => {
   };
 
   return (
-    <div className="w-[320px] h-55 ml-[21.5em] absolute bg-slate-50 mt-10 p-2 rounded shadow-[0_8px_30px_rgb(0,0,0,0.12)] z-10">
+    <div className="w-[320px] h-55 lg:ml-[21.5em] ml-0 absolute bg-slate-50 lg:mt-10 mt-[7em] p-2 rounded shadow-[0_8px_30px_rgb(0,0,0,0.12)] z-10">
       <input
         className="mb-3 w-full p-2"
         value={inputValue}

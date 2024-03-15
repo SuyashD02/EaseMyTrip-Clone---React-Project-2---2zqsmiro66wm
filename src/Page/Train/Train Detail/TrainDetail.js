@@ -63,9 +63,7 @@ function TrainDetail(){
             },
           });
           if (response.ok) {
-            console.log("Flight Function called");
             const data = await response.json();
-            console.log(data);
             setSearchResultsTrain(data.data.trains);
           } else {
             const errorData = await response.json();
@@ -84,7 +82,7 @@ function TrainDetail(){
             <Navbar/>
             <div className={Classes.TrainSearchSection}>
         <div className={Classes.searchBarTrainDiv} >
-            <div className="w-[3%] h-[100%] flex items-center">
+            <div className="w-[3%] max-[600px]:w-[15%] h-[100%] flex items-center max-[600px]:mt-[10px]">
                 <img className="w-[100%]" src="https://www.easemytrip.com/images/train-img/train-icon.svg"/>
             </div>
           <div className={Classes.mainDivTrainRecordSearch}>
@@ -101,7 +99,7 @@ function TrainDetail(){
           </div>
           {trainFromOpen && <TrainFromDetail onClose={handleTrainCityInput} />}
 
-          <div className="h-[100%] w-[3%] flex flex-col justify-center items-center">
+          <div className="h-[100%] w-[3%] flex flex-col justify-center items-center max-[600px]:hidden">
             <img
               className="h-[90%]"
               src="https://railways.easemytrip.com/Content/Train/img/list-arrow-lr.png"
@@ -121,7 +119,7 @@ function TrainDetail(){
           </div>
           {trainToOpen && <TrainToDetail onClose={handleTrainCityToInput}  />}
 
-          <div className="flex justify-center rounded-[5px] items-center h-[100%] w-[21%] bg-[#fff]">
+          <div className="flex justify-center rounded-[5px] items-center h-[100%] w-[21%] max-[600px]:w-[100%]  bg-[#fff]">
             <div className="w-[95%] h-[90%] flex items-center">
               <DatePicker
                 selected={traindepartureDate}
@@ -133,7 +131,7 @@ function TrainDetail(){
               </div>
             </div>
           </div>
-          <div className="w-[16%] h-[100%] flex justify-center items-center">
+          <div className="w-[16%] max-[600px]:w-[100%] max-[600px]:mb-[10px] h-[100%] flex justify-center items-center">
             <div
               className={Classes.searchButtonTrainRecords}
               onClick={trainSearch}
@@ -144,8 +142,8 @@ function TrainDetail(){
         </div>
       </div>
       <div className="w-[100%] h-[100%] bg-[#e8f2fa] flex justify-center">
-        <div className="w-[80%] h-[100%] flex flex-row gap-[20px]">
-            <div className="w-[20%] flex flex-col">
+        <div className="w-[80%] max-[600px]:w-[95%] h-[100%] flex flex-row gap-[20px]">
+            <div className="w-[20%] max-[600px]:hidden flex flex-col">
               <div className={Classes.trainDataPage}>
               <div className="text-[#000] text-[14px] font-[600] ">
               <p>Filter By</p>
@@ -333,7 +331,7 @@ function TrainDetail(){
             
           </div>
             </div>
-            <div className="w-[79%] h-[100%]">
+            <div className="w-[79%] max-[600px]:w-[100%] h-[100%]">
                 <TrainData searchResultsTrain={searchResultsTrain}/>
             </div>
         </div>

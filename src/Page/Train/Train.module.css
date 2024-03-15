@@ -386,3 +386,95 @@
 .paymentUpiInput:focus{
     outline: none;
 }
+@media(max-width:600px){
+    .trainBooking{
+       justify-content: space-evenly;
+       height: auto;
+    }
+    .headtrainSearchbar{
+    height: auto;
+    }
+    .captionTrain{
+        width: 70%;
+    }
+    .searchBarTrain{
+        flex-direction: column;
+        height: auto;
+        gap: 7px;
+        align-items: center;
+        margin-top: 20px;
+    }
+    .mainDivTrainSearch{
+        width: 100%;
+        margin-top: 5px;
+        border-bottom: 1px solid #e0dede;
+    }
+    .swapTIcon{
+        display: none;
+    }
+    .dividerTrain{
+        display: none;
+    }
+    .searchDepartureTrain{
+        width: 100%;
+        border-bottom: 1px solid #e0dede;
+
+    }
+    .searchButtonTrain{
+        width: 95%;
+        border-radius: 40px;
+        margin-bottom: 10px;
+        margin-top: 5px;
+    }
+    .h3SearchBtnTrain{
+        height: 5vh;
+        display: flex;
+        align-items: center;
+    
+    }
+    .searchFromTrain{
+        margin-bottom: 5px;
+    }
+    .searchToTrain{
+        margin-bottom: 5px;
+    }
+    .trainhomeDeparture{
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+    .boxTrain{
+        width: 100%;
+    }
+    .offerHeadingT{
+        width: 100%;
+        height: auto;
+    }
+    .headingDivT{
+        width: 100%;
+    }
+    .trainOfersBoxes{
+        width: 50%;
+    }
+    .offersImagedivT{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+    .trainOffersImage{
+        height: 50%;
+    }
+    .persnolDataTrainFName{
+        height: 5vh;
+        margin-top: 4px;
+        margin-bottom: 4px;
+    }
+    .persnolDataTrainLName{
+        height: 5vh;
+        margin-top: 4px;
+        margin-bottom: 4px;
+    }
+    .paymentLeftSection{
+        display: none;
+    }
+
+}

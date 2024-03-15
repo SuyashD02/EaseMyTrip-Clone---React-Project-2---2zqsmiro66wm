@@ -57,7 +57,6 @@ function HotelPayment() {
       }).then((response) => {
         if (response.ok) {
           setShowSuccessfull(!showSuccessfull);
-          console.log("Successfully Posted");
         }
       });
     }
@@ -67,8 +66,8 @@ function HotelPayment() {
     <div>
       <Navbar />
       <div className="w-[100%] h-[100%] bg-[#e8f2fa] flex justify-center">
-        <div className=" w-[90%] h-[100%] flex flex-row gap-[20px] justify-between mb-[20px]">
-          <div className=" w-[70.5%] mt-[20px]">
+        <div className=" w-[90%] h-[100%] flex max-[600px]:flex-col flex-row gap-[20px] justify-between mb-[20px]">
+          <div className=" w-[70.5%] max-[600px]:w-[100%] mt-[20px]">
             <div className={Classes.personalDetailHotel}>
               <div className={Classes.bookingHotelHeader}>
                 <div className={Classes.PersPaymentmg}></div>
@@ -132,7 +131,7 @@ function HotelPayment() {
                     </div>
                   </div>
                 </div>
-                <div className="w-[67%] pt-[2%] pb-[2%] pl-[3%]">
+                <div className="w-[67%] max-[600px]:w-[100%] pt-[2%] pb-[2%] pl-[3%]">
                   {selectedOption === "UPI" && (
                     <div className="w-[100%] mt-[13px] flex flex-col justify-center items-center">
                       <span className="  w-[100%] text-[13px] font-[600] flex justify-between items-center">
@@ -291,7 +290,7 @@ function HotelPayment() {
               </div>
             </div>
           </div>
-          <div className="w-[26%] mt-[60px] flex flex-col">
+          <div className="w-[26%] max-[600px]:w-[100%] mt-[60px] flex flex-col">
             <div className={Classes.hotelBookingAmont}>
               <div className={Classes.hotelBokkingAmountHeader}>
                 <div className="text-[18px] text-[#1a1a1a] h-[50px] flex items-center ml-[10px]">

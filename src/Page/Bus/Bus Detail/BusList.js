@@ -4,6 +4,7 @@ import { useAuth } from "../../../components/Context";
 import moment from "moment";
 import Modal from "@mui/material/Modal";
 import { useNavigate } from "react-router-dom";
+import ModalLogin from "../../../components/NavBar/ModalLogin";
 function BusList({ searchResultsBus }) {
   const [busDetailOpen, setBusDetailOpen] = useState(false);
   const {
@@ -12,8 +13,10 @@ function BusList({ searchResultsBus }) {
     busToCity,
     selectedSeats,
     setSelectedSeats,
+    openLogin, setOpenLogin,
     busBookingId, setBusBookingId,
   } = useAuth();
+  const jwtToken =localStorage.getItem('token');
   const navigate = useNavigate();
   const [open, setOpen] = useState(false);
   const [isSelected, setIsSelected] = useState([]);
@@ -55,8 +58,12 @@ function BusList({ searchResultsBus }) {
 
   
   const handleBookBus=(id)=>{
+    if(jwtToken != null){
     setBusBookingId(id);
     navigate("/busBooking");
+    }else{
+      setOpenLogin(true);
+    }
   }
   return (
     <div className="h-[100%] w-[100%] mb-[10px]">
@@ -64,8 +71,8 @@ function BusList({ searchResultsBus }) {
         searchResultsBus.map((BusApidata, index) => (
           <div className={Classes.BusDataBox} key={index}>
             <div className="w-[100%] h-[100%] flex flex-col justify-center items-center">
-              <div className="w-[98%] h-[93%] flex flex-row gap-[15px]  mt-[5px]">
-                <div className="h-[100%] w-[30%] flex flex-col">
+              <div className="w-[98%] h-[93%] max-[600px]:flex-col flex flex-row gap-[15px]  mt-[5px]">
+                <div className="h-[100%] w-[30%] max-[600px]:w-[100%] flex flex-col">
                   <div className="w-[100%]">
                     <span className="text-[16px] text-[#000] font-[600]">
                       {BusApidata?.name}
@@ -78,7 +85,7 @@ function BusList({ searchResultsBus }) {
                     <img src="https://bus.easemytrip.com/images/recmmed-icn.svg" />
                   </div>
                 </div>
-                <div className="h-[100%] w-[35%] flex justify-evenly">
+                <div className="h-[100%] w-[35%] max-[600px]:w-[100%] flex justify-evenly">
                   <div className="w-[28%] flex flex-col ">
                     <div className="text-[18px] text-[#333] font-[600] ">
                       {BusApidata?.departureTime}
@@ -104,17 +111,17 @@ function BusList({ searchResultsBus }) {
                     </div>
                   </div>
                 </div>
-                <div className="w-[15%] h-[100%] flex flex-col">
-                  <div className="w-[100%] text-[11px] text-[#737373] flex justify-end mt-[5px]">
+                <div className="w-[15%] max-[600px]:w-[100%]  h-[100%] flex flex-col">
+                  <div className="w-[100%] text-[11px] text-[#737373] max-[600px]:justify-center flex justify-end mt-[5px]">
                     <p>Starting from</p>
                   </div>
-                  <div className=" w-[100%] text-[20px] text-[#d63b05] font-[600] flex justify-end gap-[5px] mt-[2px]">
+                  <div className=" w-[100%] text-[20px] text-[#d63b05] font-[600] flex max-[600px]:justify-center justify-end gap-[5px] mt-[2px]">
                     <i>₹</i>
                     <span> {BusApidata?.fare}</span>
                   </div>
                 </div>
 
-                <div className=" h-[100%] w-[15%] flex flex-col items-center">
+                <div className=" h-[100%] w-[15%] max-[600px]:w-[100%] flex flex-col items-center">
                   <p
                     className="bg-[#ef6614] rounded-[40px] text-[14px] text-[#fff] w-[100%] h-[34px] mt-[7px] flex justify-center items-center cursor-pointer"
                     onClick={() => handleOpen(BusApidata._id)}
@@ -132,9 +139,9 @@ function BusList({ searchResultsBus }) {
                     aria-describedby="modal-modal-description"
                   >
                     <div className={Classes.modalSeatSection}>
-                      <div className="w-[98%] h-[98%] flex justify-between">
+                      <div className="w-[98%] h-[98%] flex max-[600px]:flex-col justify-between">
                       <div className={Classes.closeBtnBusSeats} onClick={handleClose}></div>
-                        <div className="w-[70%] flex flex-col items-center">
+                        <div className="w-[70%] max-[600px]:w-[100%] flex flex-col items-center">
                           <div className="w-[98%] flex">
                             <div className="flex items-center ">
                               <div className="text-[18px] text-[#000] font-[600] flex items-center ">
@@ -167,7 +174,7 @@ function BusList({ searchResultsBus }) {
                           </div>
                           <div className="border-b-[#cfcdcd] border-dashed border w-[98%] mt-[10px]"></div>
                           <div className="w-[98%] flex mt-[10px] ">
-                            <div className=" w-[20%] text-[11px] flex gap-[5px] items-center">
+                            <div className=" w-[20%] max-[600px]:w-[25%]  text-[11px] flex gap-[5px] items-center">
                               <div className="w-[18px] h-[20px] overflow-hidden">
                                 <img
                                   className="mt-[-19px] ml-[-20px]"
@@ -176,7 +183,7 @@ function BusList({ searchResultsBus }) {
                               </div>
                               <p>Booked</p>
                             </div>
-                            <div className=" w-[20%] text-[11px] flex gap-[5px] items-center">
+                            <div className=" w-[20%] max-[600px]:w-[30%] text-[11px] flex gap-[5px] items-center">
                               <div className="w-[18px] h-[20px] overflow-hidden ">
                                 <img
                                   className="mt-[-19px] ml-[-46px]"
@@ -185,7 +192,7 @@ function BusList({ searchResultsBus }) {
                               </div>
                               <p>Available</p>
                             </div>
-                            <div className="w-[20%] text-[11px] flex gap-[5px] items-center">
+                            <div className="w-[20%] max-[600px]:w-[25%] text-[11px] flex gap-[5px] items-center">
                               <div className="w-[18px] h-[20px] overflow-hidden ">
                                 <img
                                   className="mt-[-19px] ml-[-128px]"
@@ -197,12 +204,12 @@ function BusList({ searchResultsBus }) {
                           </div>
                           <div className="w-[98%] bg-[#eeeeee] mt-[10px] flex items-center gap-[10px]">
                             <p className="text-[13px]">Seat Price</p>
-                            <div className="w-[10%] h-[30px] text-[14px] font-[600] rounded-[4px] bg-[#2196f3] text-[#fff] flex justify-center items-center">
+                            <div className="w-[10%] max-[600px]:w-[15%] h-[30px] text-[14px] font-[600] rounded-[4px] bg-[#2196f3] text-[#fff] flex justify-center items-center">
                               <p>{BusApidata?.fare}</p>
                             </div>
                           </div>
                           <div className="w-[98%]">
-                            <div className="bg-[#fff8c8] text-[#857400] text-[12px] font-[400] rounded-[3px]  w-[50%] flex items-center justify-center mt-[10px]">
+                            <div className="bg-[#fff8c8] text-[#857400] text-[12px] font-[400] rounded-[3px]  w-[50%] max-[600px]:w-[100%] flex items-center justify-center mt-[10px]">
                               <p>
                                 Select your desired seat to continue with your
                                 transaction.{" "}
@@ -519,26 +526,26 @@ function BusList({ searchResultsBus }) {
                             </div>
                           </div>
                         </div>
-                        <div className="w-[29.5%]">
+                        <div className="w-[29.5%] max-[600px]:w-[100%]">
                           <div className="w-[100%] bg-[#eee] rounded-[5px] flex flex-col items-center">
-                            <div className="w-[95%] text-[15px] text-[#000] mt-[20px]">
+                            <div className="w-[95%] max-[600px]:hidden text-[15px] text-[#000] mt-[20px]">
                               <p>Boarding Point</p>
                             </div>
-                            <div className="w-[95%] text-[14px] text-[#404040] flex gap-[5px] mt-[5px]">
+                            <div className="w-[95%] max-[600px]:hidden text-[14px] text-[#404040] flex gap-[5px] mt-[5px]">
                               <span>{BusApidata?.departureTime}</span> :{" "}
                               <span>{BusApidata?.source}</span>
                             </div>
-                            <div className="w-[95%] text-[15px] text-[#000] mt-[15px]">
+                            <div className="w-[95%] max-[600px]:hidden text-[15px] text-[#000] mt-[15px]">
                               <p>Dropping Point</p>
                             </div>
-                            <div className="w-[95%] text-[14px] text-[#404040] flex gap-[5px] mt-[5px]">
+                            <div className="w-[95%] max-[600px]:hidden text-[14px] text-[#404040] flex gap-[5px] mt-[5px]">
                               <span>{BusApidata?.arrivalTime}</span> :{" "}
                               <span>{BusApidata?.destination}</span>
                             </div>
-                            <div className="w-[95%] text-[15px] text-[#000] mt-[15px]">
+                            <div className="w-[95%] max-[600px]:hidden text-[15px] text-[#000] mt-[15px]">
                               <p>Select Seats</p>
                             </div>
-                            <div className="w-[95%] text-[15px] text-[#000] mt-[5px] flex flex-wrap gap-[10px]">
+                            <div className="w-[95%] max-[600px]:hidden text-[15px] text-[#000] mt-[5px] flex flex-wrap gap-[10px]">
                               {selectedSeats?.map((seat, indexseat) => (
                                 <p
                                   key={indexseat}
@@ -554,7 +561,7 @@ function BusList({ searchResultsBus }) {
                                 </p>
                               ))}
                             </div>
-                            <div className="w-[95%] text-[15px] text-[#000] mt-[15px]">
+                            <div className="w-[95%] max-[600px]:w-[100%] text-[15px] text-[#000] mt-[15px]">
                               <div className="bg-[#fff] w-[100%] border border-solid border-[#dedede] flex flex-col items-center">
                                 <div className="text-[12px] text-[#000] flex justify-between w-[97%] mt-[10px]">
                                   <p>Base Fare(+)</p>{" "}
@@ -587,6 +594,7 @@ function BusList({ searchResultsBus }) {
                             </div>
                           </div>
                         </div>
+                        {openLogin && <ModalLogin/>}
                       </div>
                     </div>
                   </Modal>

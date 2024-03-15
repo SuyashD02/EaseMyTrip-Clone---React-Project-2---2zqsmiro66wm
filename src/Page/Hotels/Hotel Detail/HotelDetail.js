@@ -5,11 +5,13 @@ import Classes from "../Hotels.module.css";
 import { Divider } from '@mui/material';
 import { useAuth } from "../../../components/Context";
 import { useNavigate } from "react-router-dom";
+import ModalLogin from "../../../components/NavBar/ModalLogin";
 
 function HotelDetail() {
   const [hotelDetailData, setHotelDetailData] = useState([]);
   const [hotelDetailError, setHotelDetailError] = useState(null);
-  const { hotelId,setHotelBookingId } = useAuth();
+  const jwtToken =localStorage.getItem('token');
+  const { hotelId,setHotelBookingId,openLogin, setOpenLogin } = useAuth();
   const navigate = useNavigate();
   useEffect(() => {
     const fetchHotelData = async () => {
@@ -27,7 +29,6 @@ function HotelDetail() {
 
         if (response.ok) {
           const data = await response.json();
-          console.log(data);
           setHotelDetailData(data?.data);
         } else {
           const errorData = await response.json();
@@ -43,15 +44,18 @@ function HotelDetail() {
   }, [hotelId]);
 
   const handleBookFlight=(id)=>{
+    if(jwtToken != null){
     setHotelBookingId(id);
     navigate("/hotelbooking");
+    }else{
+      setOpenLogin(true);
+    }
   }
   return (
     <div>
       <Navbar />
       <HotelSearchbar />
       <div className={Classes.hotelDetailMainDiv}>
-        {/* <h3 className="text-3xl text-center font-bold">HotelDetail Section </h3> */}
             <div className={Classes.hotelDetailInfoSection}>
               <div className={Classes.hotelDetailMainInfo}>
                 <div className={Classes.hotelDetailHeaders}>
@@ -144,6 +148,7 @@ function HotelDetail() {
                   </div>
                   </div>
                 </div>
+                {openLogin && <ModalLogin/>}
               </div>
             </div>
             <div className={Classes.hotelDetailNavigateSection}>

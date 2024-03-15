@@ -23,7 +23,6 @@ function FlightDetail(){
   
           if (response.ok) {
             const data = await response.json();
-            console.log(data);
             setFlightDetailData(data?.data);
           } else {
             const errorData = await response.json();
@@ -40,14 +39,14 @@ function FlightDetail(){
     return(
         <div className="h-[100%] w-[100%] flex flex-col items-center">
               <div className="h-[5vh] w-[98%] mt-[10px] bg-[#f6f4f4] rounded-[20px]">
-                <div className="h-[100%] w-[23%] text-[13px]  font-[500] bg-[#2196f3] rounded-[20px] text-[#fff] flex justify-center items-center">
+                <div className="h-[100%] w-[23%] max-[600px]:w-[50%] text-[13px]  font-[500] bg-[#2196f3] rounded-[20px] text-[#fff] flex justify-center items-center">
                   <p>Flight Information</p>
                 </div>
                 
               </div>
-              <div className=" w-[98%] h-[18vh] flex justify-center items-center">
+              <div className=" w-[98%] h-[18vh] max-[600px]:h-auto flex justify-center items-center">
               <div className="w-[100%] h-[90%] flex flex-col">
-                <div className=" w-[100%] h-[25%]">
+                <div className=" w-[100%] h-[25%] max-[600px]:mt-[10px] max-[600px]:mb-[10px]">
                     <div className="text-[15px] text-[#000]">
                     <span >{flightDetailData?.source}</span> → <span>{flightDetailData?.destination}</span>
                     </div>
@@ -69,7 +68,7 @@ function FlightDetail(){
                             </div>
                         </div>
                         <div className=" w-[32%] h-[100%] flex flex-col items-center">
-                            <div className="w-[10%] h-[4vh] overflow-hidden">
+                            <div className="w-[10%] max-[600px]:w-[25%] h-[4vh] overflow-hidden">
                                 <img className="mt-[-53em] h-[70em] ml-[-30px]" src="https://flight.easemytrip.com/Content/img/split-img.png"/>
                             </div>
                             <div className="text-[12px] text-[#333]">

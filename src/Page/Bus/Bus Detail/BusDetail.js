@@ -61,9 +61,7 @@ function BusDetail(){
             },
           });
           if (response.ok) {
-            console.log("Bus Function called");
             const data = await response.json();
-            console.log(data);
             setSearchResultsBus(data.data.buses);
           } else {
             const errorData = await response.json();
@@ -97,7 +95,7 @@ function BusDetail(){
           </div>
           {busDetailFromOpen && <BusDetailFrom onClose={handleBusDetailCityInput} />}
 
-          <div className="h-[100%] w-[3%] flex flex-col justify-center items-center">
+          <div className="h-[100%] w-[3%] flex max-[600px]:hidden flex-col justify-center items-center">
             <img
               className="h-[90%]"
               src="https://railways.easemytrip.com/Content/Train/img/list-arrow-lr.png"
@@ -129,7 +127,7 @@ function BusDetail(){
               </div>
             </div>
           </div>
-          <div className="w-[16%] h-[100%] flex justify-center items-center">
+          <div className="w-[16%] max-[600px]:w-[100%] max-[600px]:mb-[10px] h-[100%] flex justify-center items-center">
             <div
               className={Classes.searchButtonBusRecords}
               onClick={BusSearch}
@@ -141,7 +139,7 @@ function BusDetail(){
       </div>
       <div className="w-[100%] h-[100%] bg-[#e8f2fa] flex justify-center">
         <div className="w-[80%] h-[100%] flex flex-row gap-[20px]">
-            <div className="w-[20%] flex flex-col">
+            <div className="w-[20%] max-[600px]:hidden flex flex-col">
             <div className={Classes.busDataPage}>
               <div className="text-[#000] text-[14px] font-[600] ">
               <p>Filter By</p>
@@ -331,7 +329,7 @@ function BusDetail(){
 
           </div>
             </div>
-            <div className="w-[79%] h-[100%]">
+            <div className="w-[79%] max-[600px]:w-[100%] h-[100%]">
                 <BusList searchResultsBus={searchResultsBus}/>
             </div>
         </div>

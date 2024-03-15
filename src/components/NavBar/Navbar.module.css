@@ -253,7 +253,6 @@
    padding: 4;
    display: flex;
    justify-content: center;
-  
 }
 .closeBtn{
     width: 11px;
@@ -328,4 +327,66 @@
    
     justify-content: space-between;
     background-color: white;
+}
+@media(max-width:600px){
+    
+    .navClickSection{
+        display: flex;
+        flex-direction: column;
+        width: 70vw;
+    }
+    .navbarEase{
+        width: 100%;
+        height: 100%!important;
+
+    }
+    .navContent{
+        width: 100%;
+        height: 140px;
+        display: flex;
+        gap: 0;
+        flex-direction: column;
+    }
+    .navLogoSection{
+        width: 45%;
+    }
+    .navRouteContent{
+        display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    
+    }
+    .navUser{
+        height: 140px;
+        width: 30vw;
+        display: flex;
+        align-items: start;
+        justify-content: center;
+    }
+    .myAcount{
+        width: 100%;
+        height: 50%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+    .navJoinSection{
+        display: none;
+    }
+    .userIconNav{
+        margin-top: 25px;
+    }
+    .btnLogin{
+        width: 90%;
+    }
+    .modalLoginSection{
+        width: 95%;
+    }
+    .modalSignUpSection{
+        width: 95%;
+    }
+    .dropdownContent{
+        margin-top: 3.5em;
+    }
 }

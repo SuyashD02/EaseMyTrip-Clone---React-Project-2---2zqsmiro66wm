@@ -474,3 +474,66 @@
 .paymentUpiInput:focus{
    outline: none;
 }
+
+@media(max-width:600px){
+   .BusBooking{
+      justify-content: space-evenly;
+      height: auto;
+   }
+   .searchBarBus{
+      flex-direction: column;
+      height: auto;
+      margin-bottom: 10px;
+      align-items: center;
+   }
+   .deviderBus{
+      display: none;
+   }
+   .swapTIcon{
+      display: none;
+   }
+   .mainDivBusSearch{
+      width: 100%;
+      border-bottom: 1px solid #e0dede;
+   }
+   .searchDepartureBus{
+      width: 100%;
+      border-bottom: 1px solid #e0dede;
+   }
+   .busOfersBoxes{
+      width: 50%;
+   }
+   .BusSearchSection{
+      height: auto;
+   }
+   .searchBarBusDiv{
+      flex-direction: column;
+      height: auto;
+      align-items: center;
+      gap: 15px;
+   }
+   .mainDivBusRecordSearch{
+      width: 100%;
+      margin-top: 10px;
+      border-radius: 5px;
+      border: 1px solid #e0dede;
+   }
+   .searchFromBusRecord{
+      height: 5vh;
+   }
+   .searchToBusRecord{
+      height: 5vh;
+   }
+   .departureDateBus{
+      width: 100%;
+      height: 5vh;
+      border: 1px solid #e0dede;
+   }
+   .modalSeatSection{
+      height: 100%;
+   }
+   .paymentLeftSection{
+      display: none;
+   }
+
+}

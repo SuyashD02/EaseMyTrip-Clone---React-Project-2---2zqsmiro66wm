@@ -323,5 +323,98 @@
     top: -1px;
     margin-left: 10px 
 }
+@media(max-width:600px){
+    .hotelSearchSection{
+        justify-content: space-evenly;
+        height: 60vh;
+    }
+    .headSearchbar{
+        height: auto;
+        justify-content: center;
+    }
+    .captionHotel{
+        width: 80%;
+        margin-right:0;
+    }
+    .searchBar{
+        flex-direction: column;
+        height: auto;
+        align-items: center;
+    }
+    .mainDivSearch{
+        width: 100%;
+        margin-top: 10px;
+        border-bottom: 1px solid #e0dede;
+    }
+    .inputFormSection{
+        width: 100%;
+        height: 5vh;
+        margin-bottom: 5px;
+    }
+    .dividerHotel{
+        display: none;
+    }
+    .dropMyLocation{
+    width: 70%;
+    margin-left: 0;
+    z-index: 1;
+    
+    }
+    .hotelhomesSectionCheckIn{
+        width: 100%;
+        margin-top: 5px;
+        border-bottom: 1px solid #e0dede;
+    }
+    .searchReturn{
+        width: 100%;
+        margin-top: 5px;
+        border-bottom: 1px solid #e0dede;
+    }
+    .searchTraveller{
+        width: 100%;
+        margin-top: 5px;
+        border-bottom: 1px solid #e0dede;
+    }
+    .searchButton{
+        width: 95%;
+        border-radius: 40px;
+        margin-bottom: 10px;
+        margin-top: 10px;
+    }
+    .h3SubmitBtnHotel{
+        height: 4vh;
+        display: flex;
+        align-items: center;
+    }
+    .inputhotel{
+        height: 4vh;
+        margin-bottom: 5px;
+    }
+    .hotelChooseRooms{
+        margin-bottom: 5px;
+    }
+    .hotelHomeQr{
+        display: none;
+    }
+    .offerHeading{
+        height: auto;
+        width: 100%;
+        flex-direction: row;
 
+    }
+    .headingDiv{
+        width: 100%;
+    }
+    .hotelOfersBoxes{
+        width: 50%;
+    }
+    .offersImagediv{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+     }
+     .hotelOffersImage{
+        height: 50%;
+     }
+}
 /* for testing */

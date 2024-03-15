@@ -7,3 +7,8 @@
     align-items: center;
     background-color: rgba(0, 0, 0, 0.6);
 }
+@media(max-width:600px){
+    .PaymentSuccessfull_Parent{
+        height: 100%;
+    }
+}

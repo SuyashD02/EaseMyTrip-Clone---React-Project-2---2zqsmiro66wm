@@ -50,7 +50,6 @@ function Train(){
             );
             const data = await response.json();
             setOffers(data.data.offers);
-            console.log(data);
           } catch (error) {
             console.error("Error fetching offers:", error);
             setOffers([]);
@@ -89,15 +88,15 @@ function Train(){
           </div>
           {trainFromOpen && <TrainFrom onClose={handleTrainCityInput} />}
           <div className={Classes.swapDiv}>
-          <div className="w-[100%] h-[30%] flex justify-center">
-              <Divider orientation="vertical" />
+          <div className="w-[100%] h-[30%] max-[600px]:block  flex justify-center">
+              <Divider orientation="vertical" className={Classes.dividerTrain}/>
             </div>
           <img
             className={Classes.swapTIcon}
             src="https://www.easemytrip.com/Content/img/swipe_icon.svg"
           />
-          <div className="w-[100%] h-[30%] flex justify-center">
-              <Divider orientation="vertical" />
+          <div className="w-[100%] h-[30%] max-[600px]:block flex justify-center">
+              <Divider orientation="vertical" className={Classes.dividerTrain}/>
             </div>
           </div>
           <div className={Classes.mainDivTrainSearch}>
@@ -117,7 +116,7 @@ function Train(){
           </div>
           {trainToOpen && <TrainTo onClose={handleTrainCityToInput} />}
 
-          <Divider orientation="vertical" />
+          <Divider orientation="vertical" className={Classes.dividerTrain}/>
           <div className={Classes.searchDepartureTrain}>
             
             <div className={Classes.trainhomeDeparture}>
@@ -133,10 +132,10 @@ function Train(){
             </div>
           </div>
           <div className={Classes.searchButtonTrain} onClick={handleSearchTrain}>
-            <h3>SEARCH</h3>
+            <h3 className={Classes.h3SearchBtnTrain}>SEARCH</h3>
           </div>
         </div>
-        <div className="text-[15px] text-[#fff] flex items-center justify-center w-[100%] mt-[30px]">
+        <div className="text-[15px] text-[#fff] flex items-center justify-center w-[100%] lg:mt-[30px] mt-[20px] max-[600px]:mb-[10px]">
             <img src="https://www.easemytrip.com/images/train-img/irctc-icon-wt.png"/>
             <p>IRCTC Authorized Partner</p>
         </div>
@@ -144,9 +143,9 @@ function Train(){
       <div className="text-[20px] font-[600] text-[#000] w-[100%] h-[5vh] flex items-center justify-center mt-[20px]">
         <p>Why Book Train Tickets from EaseMyTrip</p>
       </div>
-      <div className="mt-[20px] w-[100%] h-[35vh] flex items-center justify-center">
+      <div className="mt-[20px] w-[100%] h-[35vh] max-[600px]:h-auto flex items-center justify-center">
         <div className="w-[80%] h-[100%] flex flex-col gap-[2%]">
-            <div className="w-[100%] h-[49%] flex items-center gap-[10px] justify-center">
+            <div className="w-[100%] h-[49%] max-[600px]:h-auto  max-[600px]:flex-col flex items-center gap-[10px] justify-center">
                 <div className={Classes.boxTrain}>
                     <div className="w-[15%]">
                         <img className="w-[100%]" src="https://www.easemytrip.com/images/train-img/IRCTC-logo-nw2.png"/>
@@ -175,7 +174,7 @@ function Train(){
                     </div>
                 </div>
             </div>
-            <div className="w-[100%] h-[49%] flex items-center gap-[10px] justify-center">
+            <div className="w-[100%] h-[49%] max-[600px]:h-auto max-[600px]:flex-col max-[600px]:mt-[10px] flex items-center gap-[10px] justify-center">
                 <div className={Classes.boxTrain}>
                     <div className="w-[15%]">
                         <img className="w-[100%]" src="https://www.easemytrip.com/images/train-img/FoodonTrackLogo.png"/>

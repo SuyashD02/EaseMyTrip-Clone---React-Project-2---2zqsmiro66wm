@@ -97,7 +97,6 @@ function HotelHome() {
   };
   const handleLocationClick = (location) => {
     setHotelLocation(location);
-   
   };
   const handleInputChange = (e) => {
     const inputValue = e.target.value;
@@ -125,7 +124,6 @@ function HotelHome() {
         );
         const data = await response.json();
         setOffers(data.data.offers);
-        console.log(data);
       } catch (error) {
         console.error("Error fetching offers:", error);
         setOffers([]);
@@ -202,7 +200,7 @@ function HotelHome() {
               </div>
             </div>
           </div>
-          <Divider orientation="vertical" />
+          <Divider orientation="vertical" className={Classes.dividerHotel}/>
           <div className={Classes.hotelhomesSectionCheckIn}>
             <div className={Classes.hotelhomeCheckIn}>
               <div className={Classes.checkInHeading}>
@@ -217,7 +215,7 @@ function HotelHome() {
               />
             </div>
           </div>
-          <Divider orientation="vertical" />
+          <Divider orientation="vertical" className={Classes.dividerHotel}/>
           <div className={Classes.searchReturn}>
             <div className={Classes.hotelCheckOut}>
               <div className={Classes.checkOutHeading}>
@@ -231,7 +229,7 @@ function HotelHome() {
               />
             </div>
           </div>
-          <Divider orientation="vertical" />
+          <Divider orientation="vertical" className={Classes.dividerHotel}/>
           <div className={Classes.searchTraveller}>
             <div onClick={handleHotelTraveller} className={Classes.hotelChooseRooms}>
               <div>
@@ -245,7 +243,7 @@ function HotelHome() {
             </div>
           </div>
           {HotelTraveller && 
-          <div className="w-[15%] h-55 absolute bg-slate-50 mt-14 p-2 rounded ml-[52em] z-10 shadow-[0_8px_30px_rgb(0,0,0,0.12)]">
+          <div className="w-[15%] max-[600px]:w-[80%] h-55 absolute bg-slate-50 lg:mt-14 mt-[19em] p-2 rounded lg:ml-[52em] ml-[0] z-10 shadow-[0_8px_30px_rgb(0,0,0,0.12)]">
             <div className=" w-[98%] flex flex-col gap-[5px]">
                 <div className="w-[100%] flex mb-[15px] mt-[5px] justify-between items-center">
                     <div className="flex flex-col justify-center">
@@ -277,7 +275,7 @@ function HotelHome() {
             </div>
           }
           <div className={Classes.searchButton} onClick={handleSearch}>
-            <h3>SEARCH</h3>
+            <h3 className={Classes.h3SubmitBtnHotel}>SEARCH</h3>
           </div>
         </div>
       </div>

@@ -86,9 +86,7 @@ function FlightsRecords() {
         },
       });
       if (response.ok) {
-        console.log("Flight Function called");
         const data = await response.json();
-        console.log(data);
         setSearchResults(data.data.flights);
       } else {
         const errorData = await response.json();
@@ -141,17 +139,17 @@ function FlightsRecords() {
           {flightRecordFromOpen && (
             <FlightFrom onclose={handleFlightFormOpen} />
           )}
-
-          <div className="h-[100%] w-[2%] flex flex-col justify-center items-center">
+          <div className={Classes.swapImageSection}>
+          
             <div className="w-[100%] h-[30%] flex justify-center">
-              <Divider orientation="vertical" />
+              <Divider orientation="vertical" className={Classes.dividerFlightRecord}/>
             </div>
             <img
               className="h-[40%]"
               src="https://flight.easemytrip.com/Content/img/modify_img/swap-nw-icn.png"
             />
             <div className="w-[100%] h-[30%] flex justify-center">
-              <Divider orientation="vertical" />
+              <Divider orientation="vertical" className={Classes.dividerFlightRecord}/>
             </div>
           </div>
           <div className={Classes.mainDivFlightRecordSearch}>
@@ -172,7 +170,7 @@ function FlightsRecords() {
           </div>
           {flightRecordToOpen && <FlightsTo onclose={handleFlightToOpen} />}
 
-          <div className="flex justify-center items-center h-[100%] w-[17%]">
+          <div className="flex justify-center items-center h-[100%] w-[17%] max-[600px]:w-[100%] max-[600px]:border max-[600px]:border-solid max-[600px]:border-[#e0dede] max-[600px]:rounded-[5px]">
             <div className="w-[95%] h-[90%]">
               <div className="flex h-[40%]">
                 <p className="text-[14px] font-[500] text-[#fff]">
@@ -186,7 +184,7 @@ function FlightsRecords() {
               />
             </div>
           </div>
-          <div className="flex justify-center items-center h-[100%] w-[17%]">
+          <div className="flex justify-center items-center h-[100%] w-[17%] max-[600px]:w-[100%] max-[600px]:border max-[600px]:border-solid max-[600px]:border-[#e0dede] max-[600px]:rounded-[5px]">
             <div onClick={handleFlightTraveller}  className="w-[95%] h-[90%] flex flex-col gap-[5px]">
               <div>
                 <p className="text-[14px] font-[500] text-[#fff]">
@@ -201,7 +199,7 @@ function FlightsRecords() {
             </div>
           </div>
           {flightTraveller && 
-           <div className="w-[15%] h-55 absolute bg-slate-50 mt-16 p-2 rounded ml-[55em] z-10 shadow-[0_8px_30px_rgb(0,0,0,0.12)]">
+           <div className="w-[15%] max-[600px]:w-[75%] h-55 absolute bg-slate-50 lg:mt-16 mt-[16em] p-2 rounded lg:ml-[55em] ml-[0] z-10 shadow-[0_8px_30px_rgb(0,0,0,0.12)]">
            <div className=" w-[98%] flex flex-col gap-[5px]">
                <div className="w-[100%] flex mb-[15px] mt-[5px] justify-between items-center">
                    <div className="flex flex-col justify-center">
@@ -242,7 +240,7 @@ function FlightsRecords() {
            </div> 
            </div>
           }
-          <div className="w-[10%] h-[100%] flex justify-center items-center">
+          <div className="w-[10%] max-[600px]:w-[100%] h-[100%] flex justify-center items-center max-[600px]:mb-[10px]">
             <div
               className={Classes.searchButtonFlightRecords}
               onClick={handleSearch}
@@ -254,7 +252,7 @@ function FlightsRecords() {
       </div>
       <div className="w-[100%] h-[100%] bg-[#e8f2fa] flex justify-center">
         <div className="w-[80%] h-[100%] flex flex-row gap-[20px]">
-          <div className="w-[20%] flex flex-col">
+            <div className={Classes.filterSideBar}>
             <div className={Classes.flightDataPage}>
               <div className="text-[#000] text-[14px] font-[600] ">
                 <p> FILTER </p>
@@ -476,7 +474,7 @@ function FlightsRecords() {
               </div>
             </div>
           </div>
-          <div className="w-[79%] h-[100%] ">
+          <div className="w-[79%] max-[600px]:w-[100%] h-[100%] ">
             <FlightLists searchResults={searchResults} />
           </div>
         </div>

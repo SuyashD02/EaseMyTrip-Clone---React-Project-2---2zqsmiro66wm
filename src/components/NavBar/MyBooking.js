@@ -33,6 +33,7 @@ function MyBooking(){
     return(
         <div>
             <Navbar/>
+            {bartoken?(
             <div className={Classes.myBookingSection}>
         <div className={Classes.myBookingDiv}>
           <div className={Classes.boxMyBooking}>
@@ -46,7 +47,23 @@ function MyBooking(){
             <h4>Bookings</h4>
           </div>
           <div className="w-[100%] gap-[30px]">
-            {isLoggedIn ? (
+            {bookingData.length===0 ? (
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection:"column",
+                  alignItems: "center",
+                  width: "100%",
+                  height: "310px",
+                  justifyContent: "center",
+                }}
+              >
+                <img src="https://mybookings.easemytrip.com/Content/assest/img/booking-data.svg" alt="Empty" />
+                <div>
+                  <h3>Currently You Have No Bookings.</h3>
+                </div>
+              </div>
+            ):(
               bookingData?.map((bookingdetail, id) => (
                 <div key={id} className={Classes.summeryBox}>
                   <div className="w-[500px]">
@@ -67,26 +84,10 @@ function MyBooking(){
                   </h4>
                 </div>
               ))
-            ) : (
-              <div
-                style={{
-                  display: "flex",
-                  flexDirection:"column",
-                  alignItems: "center",
-                  width: "100%",
-                  height: "310px",
-                  justifyContent: "center",
-                }}
-              >
-                <img src="https://mybookings.easemytrip.com/Content/assest/img/booking-data.svg" alt="Empty" />
-                <div>
-                  <h3>Currently You Have No Bookings.</h3>
-                </div>
-              </div>
             )}
           </div>
         </div>
-      </div>
+      </div>):(<h3 className="flex justify-center text-[30px] mt-[10px]"> Please Login First ! </h3>)}
         </div>
     )
 }

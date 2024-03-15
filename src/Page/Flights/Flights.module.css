@@ -491,3 +491,95 @@
     height: 24px;
     background-position: -314px 166px;
 }
+@media(max-width:600px){
+    
+    .flightBooking{
+        justify-content: space-evenly;
+        height: 60vh;
+    }
+    .headSearchbar{
+        height: auto;
+       
+    }
+
+    .captionFlight{
+        width: 70%;
+    }
+    .searchBarFlight{
+        flex-direction: column;
+        height: auto;
+        align-items: center;
+        gap: 5px;
+    }
+    .mainDivFlightSearch{
+        width: 100%;
+        border-bottom: 1px solid #e0dede;
+    }
+    .inputToSection{
+        flex-direction: row;
+        width: 100%;
+        align-items: center;
+        gap: 10px;
+    }
+    .divider{
+        display: none;
+    }
+    .swapIcon{
+      display: none;
+     }
+     .searchDepartureFlight{
+        width: 100%;
+        border-bottom: 1px solid #e0dede;
+     }
+     .searchTravellerFlight{
+        width: 100%;
+        border-bottom: 1px solid #e0dede;
+     }
+     .searchButtonFlight{
+        width: 95%;
+        border-radius: 40px;
+        margin-bottom: 5px;
+        margin-top: 5px;
+     }
+     .h3Search{
+        height: 5vh;
+        display: flex;
+        align-items: center;
+     }
+     .offerHeadingFlight{
+        width: 100%;
+     }
+     .headingDivFlight{
+        width: 90%;
+     }
+     .listOffers{
+        width: 100%;
+        gap: 5px;
+       
+     }
+     .offersFlightImagediv{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+     }
+     .flightOfersBoxes{
+        width: 50%;
+     }
+     .flightOffersImage{
+        height: 50%;
+     }
+     .flightFromToImg{
+        top: 22.5em;
+     }
+     .persnolDataFlightMobileNo{
+        height: 5vh;
+        width: 98%;
+     }
+     .persnolDataFlightEmail{
+        height: 5vh;
+        width: 98%;
+     }
+     .paymentLeftSection{
+        display: none;
+     }
+}

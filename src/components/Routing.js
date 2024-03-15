@@ -36,10 +36,11 @@ function Routing(){
             <Route path="/trainrecord" element={<TrainDetail/>} />
             <Route path="/bus" element={<Bus/>}/>
             <Route path="/busrecord" element={<BusDetail/>}/>
+            <Route path="/mybooking" element={<MyBooking/>}/>
             
             
             <Route element={<PrivateRoute/>}>
-            <Route path="/mybooking" element={<MyBooking/>}/>
+            
             <Route path="/busBooking" element={<BusBooking/>}/>
             <Route path="/trainBooking" element={<TrainBooking/>}/>
             <Route path="/flightpayment" element={<FlightPayMent/>}/>

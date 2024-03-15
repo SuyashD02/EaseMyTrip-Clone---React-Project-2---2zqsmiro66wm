@@ -42,7 +42,6 @@ function BusBooking(){
   
           if (response.ok) {
             const data = await response.json();
-            console.log(data);
             setBusBookingDetailData(data?.data);
           } else {
             const errorData = await response.json();
@@ -59,9 +58,9 @@ function BusBooking(){
     return(
         <div>
             <Navbar/>
-            <div className="w-[100%] h-[100vh] bg-[#e8f2fa] flex justify-center">
-            <div className=" w-[90%] h-[100%] flex flex-row gap-[20px] justify-between">
-               <div className="w-[70.5%] mt-[20px]">
+            <div className="w-[100%] h-[100vh] max-[600px]:h-[100%] bg-[#e8f2fa] flex justify-center">
+            <div className=" w-[90%] h-[100%] flex max-[600px]:flex-col flex-row gap-[20px] justify-between">
+               <div className="w-[70.5%] max-[600px]:w-[100%] mt-[20px]">
                 <div className={Classes.bookingBusData}>
                     <div className={Classes.bookingHeader}>
                         <div className={Classes.flightbookingImg}></div>
@@ -76,8 +75,8 @@ function BusBooking(){
                                     <span className="text-[20px] text-[#1a1a1a] ">{hotelBookingDetailData?.source} - {hotelBookingDetailData?.destination} </span> |<span className="text-[12px] text-[#6a6868]">{departureDay} - {departureDate}</span>
                                     </div>
                                 </div> */}
-                                <div className="w-[100%] flex gap-[5px] ">
-                                    <div className="w-[36%] flex ">
+                                <div className="w-[100%] flex max-[600px]:flex-col max-[600px]:items-center  gap-[5px] ">
+                                    <div className="w-[36%] max-[600px]:w-[100%] flex ">
                                         <div className="w-[17%]">
                                             <img src="https://bus.easemytrip.com/NewTravellerCss/img/bus-i.png"/>
                                         </div>
@@ -88,22 +87,22 @@ function BusBooking(){
                                             <div className=" w-[50%] text-[15px] text-[#000] bg-[#fcf8e3] pt-[2px] font-[500] rounded-[4px] flex items-center justify-center">{departureDate}</div>
                                         </div>
                                     </div>
-                                    <div className="w-[12%] mt-[3px] flex flex-col ">
+                                    <div className="w-[12%] mt-[3px] flex flex-col max-[600px]:items-center">
                                         <div className="w-[100%] text-[12px] text-[#000]">Departure Time</div>
-                                        <div className="w-[100%] pb-[5px] text-[#222121] text-[16px] font-bold">{busBookingDetailData?.departureTime}</div>
+                                        <div className="w-[100%] pb-[5px] text-[#222121] text-[16px] font-bold max-[600px]:justify-center">{busBookingDetailData?.departureTime}</div>
                                     </div>
                                     <div className="w-[13%] mr-[1px] mt-[7px] flex justify-center">
                                         <div className="w-[100%] items-center justify-center">
                                             <img src="https://bus.easemytrip.com/NewTravellerCss/img/bus-rou-map.png"/>
                                         </div>
                                     </div>
-                                    <div className="w-[12%] mt-[3px] flex flex-col ">
+                                    <div className="w-[12%] mt-[3px] flex flex-col max-[600px]:items-center">
                                         <div className="w-[100%] text-[12px] text-[#000]">Arrival Time</div>
                                         <div className="w-[100%] pb-[5px] text-[#222121] text-[16px] font-bold">{busBookingDetailData?.arrivalTime}</div>
                                     </div>
-                                    <div className="w-[15%] text-[15px]  mt-[3px] flex flex-col">
+                                    <div className="w-[15%] max-[600px]:w-[100%] text-[15px]  mt-[3px] flex flex-col max-[600px]:flex-row">
                                         <div className="w-[100%] pb-[5px] text-[#000] text-[12px]">Seat no(s)</div>
-                                    <div className="w-[100%] text-[15px]  text-[#000] mt-[3px] flex flex-wrap gap-[10px]">
+                                    <div className="w-[100%] text-[15px] max-[600px]:justify-center  text-[#000] mt-[3px] flex flex-wrap gap-[10px]">
                               {selectedSeats?.map((seat, indexseat) => (
                                 <p
                                   key={indexseat}
@@ -114,7 +113,7 @@ function BusBooking(){
                               ))}
                             </div>
                             </div>
-                            <div className=" w-[9%] mt-[3px]">
+                            <div className=" w-[9%] mt-[3px] max-[600px]:hidden ">
                                 <div className="w-[100%] pb-[5px] text-[#000] text-[12px] items-center">Passengers(s)</div>
                                 <div className="w-[100%] text-[15px] text-[#222121] items-center pb-[5px] flex justify-center">{selectedSeats.length}</div>
                             </div>
@@ -144,7 +143,7 @@ function BusBooking(){
                                         </div>
                                     </div>
                                     <div className={Classes.busDetailBox}>
-                                    <span className="bg-[#e3edf5] w-[35%] text-[12px] text-[#666] p-[3px] rounded-[3px] mb-[5px] flex justify-center items-center">Bus Operator</span>
+                                    <span className="bg-[#e3edf5] w-[35%] max-[600px]:w-[70%] text-[12px] text-[#666] p-[3px] rounded-[3px] mb-[5px] flex justify-center items-center">Bus Operator</span>
                                     <div className="text-[13px] font-[600] w-[100%] mb-[3px] mt-[7px]">{busBookingDetailData?.name}</div>
                                     <div className="text-[13px] text-[#737373] font-[500]">{busBookingDetailData?.type}</div>
                                     </div>
@@ -161,12 +160,12 @@ function BusBooking(){
                 <div className={Classes.personalDetail}>
                 
               <h3>Add Contact Details</h3>
-              <div className="w-[100%] h-[100%] mt-[20px] flex flex-row gap-[30px]">
-                <div style={{ display: "flex", flexDirection: "column" }} className="w-[30%] gap-[5px]">
+              <div className="w-[100%] h-[100%] mt-[20px] flex max-[600px]:flex-col flex-row gap-[30px]">
+                <div style={{ display: "flex", flexDirection: "column" }} className="w-[30%] max-[600px]:w-[98%] gap-[5px]">
                   <label className="text-[11px] font-bold">(First Name & (Middle name, if any)</label>
                   <input type="text" className={Classes.persnolDataBusFName}/>
                 </div>
-                <div style={{ display: "flex", flexDirection: "column" }} className="w-[35%] gap-[5px] mb-[10px]">
+                <div style={{ display: "flex", flexDirection: "column" }} className="w-[35%] max-[600px]:w-[98%]  gap-[5px] mb-[10px]">
                   <label className="text-[11px] font-bold">Last Name</label>
                   <input type="text" className={Classes.persnolDataBusLName}/>
                 </div>
@@ -176,7 +175,7 @@ function BusBooking(){
                
 
                </div>
-               <div className="w-[26%] mt-[20px] flex flex-col">
+               <div className="w-[26%] max-[600px]:w-[100%] mt-[20px] flex flex-col">
                 <div className={Classes.busBookingAmont}>
                     <div className={Classes.busBokkingAmountHeader}>
                         <div className="text-[18px] text-[#1a1a1a] h-[50px] flex items-center ml-[10px]">
@@ -205,7 +204,7 @@ function BusBooking(){
                     </div>
                     
                 </div>
-                <div className="w-[100%] mt-[7px]">
+                <div className="w-[100%] mt-[7px] max-[600px]:mb-[10px]">
                       <p className="bg-[#ef6614] text-[#fff] text-[19px] h-[45px] cursor-pointer rounded-[40px] flex justify-center items-center" onClick={() =>
                   handlePayment(busBookingDetailData?.fare,"bus",busBookingDetailData?._id,selectedSeats.length)}>Continue Booking</p>
                     </div> 

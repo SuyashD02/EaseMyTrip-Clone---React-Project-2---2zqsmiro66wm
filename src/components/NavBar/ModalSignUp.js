@@ -32,7 +32,6 @@ function ModalSignUp(){
       }
 
       async function handleBusSignup() {
-        console.log("Function is called");
         if (!firstName) {
           setCorrectCredential(false);
           setErrorMessage("First name is required.");
@@ -71,7 +70,7 @@ function ModalSignUp(){
             setErrorMessage("Email is already registered. Please go and log in instead.");
           }
             else if (response.ok) {
-            console.log("Succecfully SignUp");
+            handleCloseSignUp();
           } else {
             const errorData = await response.json();
             setErrorMessage(errorData.message);

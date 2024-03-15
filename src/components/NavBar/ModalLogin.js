@@ -39,9 +39,7 @@ function ModalLogin() {
         }
       );
       if (response.ok) {
-        console.log("Successfully logged in");
         const data = await response.json();
-        console.log(data);
 
         localStorage.setItem("token", data.token);
         localStorage.setItem("userId", data.data._id);
@@ -49,13 +47,6 @@ function ModalLogin() {
         localStorage.setItem("photo","https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/590.jpg");
         setIsLoggedIn(true);
         handleCloseLogin();
-        // if(userMap.has(data.data._id)==false){
-         
-        // userMap.set(data.data._id,{"name":data.data.name,"photo":"https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/590.jpg"})
-        // } 
-        
-        // setIsLoggedIn(true);
-        // navigate("/Main");
       } else {
         const errorData = await response.json();
         setErrorMessage(errorData.message);

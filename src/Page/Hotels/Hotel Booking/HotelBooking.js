@@ -55,7 +55,6 @@ function HotelBooking() {
 
       if (response.ok) {
         const data = await response.json();
-        console.log(data);
         setHotelBookingDetailData(data?.data);
       } else {
         const errorData = await response.json();
@@ -81,9 +80,9 @@ function HotelBooking() {
   return (
     <div>
       <Navbar />
-      <div className="w-[100%] h-[100%] bg-[#e8f2fa] flex justify-center">
-        <div className=" w-[90%] h-[100%] flex flex-row gap-[20px] justify-between">
-          <div className=" w-[70.5%] mt-[20px]">
+      <div className="w-[100%] h-[100%] bg-[#e8f2fa]  flex justify-center">
+        <div className=" w-[90%] h-[100%] max-[600px]:flex-col flex flex-row gap-[20px] justify-between">
+          <div className=" w-[70.5%] max-[600px]:w-[100%] mt-[20px]">
             <div className={Classes.bookingHotelData}>
               <div className={Classes.bookingHotelHeader}>
                 <div className={Classes.hotelbookingImg}></div>
@@ -91,8 +90,8 @@ function HotelBooking() {
               </div>
               <div className="w-[96%]">
                 <div className={Classes.hotelBookingDetails}>
-                  <div className=" w-[98%] mt-[30px] mb-[25px] flex gap-[5px] justify-between">
-                    <div className="w-[32%]">
+                  <div className=" w-[98%] mt-[30px] mb-[25px] max-[600px]:flex-col flex gap-[5px] justify-between">
+                    <div className="w-[32%] max-[600px]:w-[100%]">
                       <div className="  w-[100%] h-[280px]">
                         <img
                           className="w-[100%] h-[100%]"
@@ -100,8 +99,8 @@ function HotelBooking() {
                         />
                       </div>
                     </div>
-                    <div className="w-[64%]">
-                      <div className="text-[15px] text-[#1a1a1a] flex w-[100%]">
+                    <div className="w-[64%] max-[600px]:w-[100%] ">
+                      <div className="text-[15px] text-[#1a1a1a] flex w-[100%] ">
                         <div className="flex gap-[7px] items-center mt-[10px] ">
                           <span className="text-[20px] font-[600] text-[#333] ">
                             {hotelBookingDetailData?.name}
@@ -115,7 +114,7 @@ function HotelBooking() {
                       <span className=" w-[100%]text-[13px]  text-[#737373] ">
                         {hotelBookingDetailData?.location}
                       </span>
-                      <div className="w-[100%] flex mt-[30px]">
+                      <div className="w-[100%] flex mt-[30px] max-[600px]:justify-center">
                         <div className="w-[36%] flex flex-col">
                           <div className="w-[100%] text-[14px] text-[#333]">
                             <p className="flex items-center ">Check-In</p>
@@ -150,7 +149,7 @@ function HotelBooking() {
                         </div>
                       </div>
                       <div className={Classes.roomDetailBooking}>
-                        <div className="bg-[#f9f8f8] p-[10px] mt-[2px] flex">
+                        <div className="bg-[#f9f8f8] p-[10px] mt-[2px] flex max-[600px]:justify-center">
                           <div className="w-[36%] text-[14px] text-[#000]">
                             Room 1:
                           </div>
@@ -172,10 +171,10 @@ function HotelBooking() {
               </div>
               <div className={Classes.personalDetailHotelChild}>
                 <h3>Add Guest Details</h3>
-                <div className="w-[100%] h-[100%] mt-[20px] flex flex-row gap-[30px]">
+                <div className="w-[100%] h-[100%] mt-[20px] flex flex-row max-[600px]:flex-col gap-[30px]">
                   <div
                     style={{ display: "flex", flexDirection: "column" }}
-                    className="w-[30%] gap-[5px]"
+                    className="w-[30%] max-[600px]:w-[100%] gap-[5px]"
                   >
                     <label className="text-[11px] font-bold">
                       (First Name & (Middle name, if any)
@@ -189,7 +188,7 @@ function HotelBooking() {
                   </div>
                   <div
                     style={{ display: "flex", flexDirection: "column" }}
-                    className="w-[35%] gap-[5px]"
+                    className="w-[35%] max-[600px]:w-[100%] gap-[5px]"
                   >
                     <label className="text-[11px] font-bold">Last Name</label>
                     <input
@@ -203,7 +202,7 @@ function HotelBooking() {
               </div>
             </div>
           </div>
-          <div className="w-[26%] mt-[20px] flex flex-col">
+          <div className="w-[26%] max-[600px]:w-[100%] mt-[20px] flex flex-col">
             <div className={Classes.hotelBookingAmont}>
               <div className={Classes.hotelBokkingAmountHeader}>
                 <div className="text-[18px] text-[#1a1a1a] h-[50px] flex items-center ml-[10px]">
@@ -237,7 +236,6 @@ function HotelBooking() {
                   </div>
                   <div className="w-[30%] text-[18px] text-[#d63b05] font-bold h-[35px] flex items-center gap-[5px]">
                     <i>₹</i>{" "}
-                    {/* {hotelBookingDetailData?.avgCostPerNight * seatCount} */}
                     {Math.floor(
                       hotelBookingDetailData?.avgCostPerNight * seatHotelCount
                     )}
@@ -246,7 +244,7 @@ function HotelBooking() {
                
               </div>
             </div>
-            <div className="w-[100%] mt-[7px]">
+            <div className="w-[100%] mt-[7px] max-[600px]:mb-[10px]">
               <p className="bg-[#ef6614] text-[#fff] text-[15px] font-[600] h-[45px] cursor-pointer rounded-[40px] flex justify-center items-center"
                onClick={() =>
                 handlePayment(hotelBookingDetailData?.avgCostPerNight,"hotel",hotelBookingDetailData?._id)}

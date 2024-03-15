@@ -47,7 +47,6 @@ function TrainBooking() {
 
       if (response.ok) {
         const data = await response.json();
-        console.log(data);
         setTrainBookingDetailData(data?.data);
       } else {
         const errorData = await response.json();
@@ -71,9 +70,9 @@ function TrainBooking() {
   return (
     <div>
       <Navbar />
-      <div className=" w-[100%] h-[100vh] bg-[#e8f2fa] flex justify-center">
-        <div className="w-[90%] h-[100%] flex flex-row gap-[20px] justify-between">
-          <div className="  w-[70.5%] mt-[20px]">
+      <div className=" w-[100%] h-[100vh] max-[600px]:h-[100%] bg-[#e8f2fa] flex justify-center">
+        <div className="w-[90%] h-[100%] flex max-[600px]:flex-col flex-row gap-[20px] justify-between">
+          <div className="  w-[70.5%] max-[600px]:w-[100%] mt-[20px]">
             <div className={Classes.bookingTrainData}>
               <div className={Classes.bookingHeader}>
                 <div className={Classes.trainbookingImg}></div>
@@ -168,10 +167,10 @@ function TrainBooking() {
               </div>
               <div className={Classes.personalDetail}>
                 <h3>Add Contact Details</h3>
-                <div className="w-[100%] h-[100%] mt-[20px] flex flex-row gap-[30px]">
+                <div className="w-[100%] h-[100%] mt-[20px] flex flex-row max-[600px]:flex-col gap-[30px]">
                   <div
                     style={{ display: "flex", flexDirection: "column" }}
-                    className="w-[30%] gap-[5px]"
+                    className="w-[30%] max-[600px]:w-[98%] gap-[5px]"
                   >
                     <label className="text-[11px] font-bold">
                       (First Name & (Middle name, if any)
@@ -185,7 +184,7 @@ function TrainBooking() {
                   </div>
                   <div
                     style={{ display: "flex", flexDirection: "column" }}
-                    className="w-[35%] gap-[5px] mb-[10px]"
+                    className="w-[35%] max-[600px]:w-[98%] gap-[5px] mb-[10px]"
                   >
                     <label className="text-[11px] font-bold">Last Name</label>
                     <input
@@ -199,7 +198,7 @@ function TrainBooking() {
               </div>
             </div>
           </div>
-          <div className="w-[26%] mt-[20px] flex flex-col">
+          <div className="w-[26%] max-[600px]:w-[100%] mt-[20px] flex flex-col">
             <div className={Classes.trainBookingAmont}>
                     <div className={Classes.trainBokkingAmountHeader}>
                         <div className="text-[18px] text-[#1a1a1a] h-[50px] flex items-center ml-[10px]">
@@ -231,7 +230,7 @@ function TrainBooking() {
                     
                 </div>
                  <h3>{guestName}</h3>
-            <div className="w-[100%] mt-[7px]">
+            <div className="w-[100%] mt-[7px] max-[600px]:mb-[10px]">
               <p className="bg-[#ef6614] text-[#fff] text-[19px] h-[45px] cursor-pointer rounded-[40px] flex justify-center items-center"
               onClick={() =>
                 handlePayment(trainBookingDetailData?.fare,"train",trainBookingDetailData?._id)}

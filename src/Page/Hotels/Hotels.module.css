@@ -867,3 +867,130 @@
 .paymentUpiInput:focus{
     outline: none;
 }
+@media(max-width:600px){
+    .searchBarHotelHeaders{
+        height: auto;
+    }
+    .searchBarHotel{
+        flex-direction: column;
+        height: auto;
+        align-items: center;
+    }
+    .searchBHedersHotel{
+        width: 100%;
+        margin-top: 10px;
+    }
+    .dropMyLocationChild{
+        width: 80%;
+        z-index: 1;
+    }
+    .hotelDatesSection{
+        width: 100%;
+    }
+    .searchRooms{
+        width: 100%;
+    }
+    .searchButtonHotel{
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    .rightHeaderHotel{
+        display: none;
+    }
+    .leftSideDataHotel{
+        display: none;
+    }
+    .rightSideDataHotel{
+        width: 100%;
+    }
+    .nameRating{
+     flex-direction: column;  
+     gap: 5px; 
+    }
+    .dataHotel{
+        width: 95%;
+    }
+    .hotelDetailHeader{
+        width: 100%;
+    }
+    .ratingHotel{
+        width: 30%;
+    }
+    .hotelDataSection{
+        flex-direction: column;
+    }
+    .hotelDataBox{
+        height: 45vh;
+    }
+    .hotelImageDiv{
+        width: 100%;
+        height: 50%;
+    }
+    .hotelDetailSection{
+        width: 100%;
+    }
+    .buttonLoginHotel{
+        display: none;
+    }
+    .hotelBooking{
+        gap: 5px;
+    }
+    .hotelDetailRating{
+        width: 35%;
+    }
+    .hotelDetailImgPriceSection{
+        flex-direction: column;
+        height: auto;
+    }
+    .hotelDetailInfoSection{
+        height: auto;
+    }
+    .hotelDetailImageSection{
+        width: 100%;
+        flex-direction: column;
+    }
+    .hotelOtherImage{
+        flex-direction: row;
+        width: 100%;
+        height: 10vh;
+        margin-top: 10px;
+    }
+    .hotelMainImage{
+        width: 100%;
+        height: 30vh;
+    }
+    .hotelImageSample1{
+        height: auto;
+    }
+    .hotelImageSample2{
+        height: auto;
+    }
+    .hotelImageSample3{
+        height: auto;
+    }
+    .hotelDetailPriceSection{
+        width: 100%;
+        margin-top: 5px;
+    }
+    .hotelDetailNavigateSection{
+        display: none;
+    }
+    .hotelDetailRoomsSection{
+        display: none;
+    }
+    .persnolDataFlightMobileNo{
+        height:5vh;
+        margin-top: 2px;
+        width: 98%;
+     }
+     .persnolDataFlightEmail{
+        height: 5vh;
+        width: 98%;
+     }
+     .paymentLeftSection{
+        display: none;
+     }
+     
+    
+      
+}

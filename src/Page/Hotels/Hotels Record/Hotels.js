@@ -5,7 +5,7 @@ import Classes from "../Hotels.module.css";
 import Navbar from "../../../components/NavBar/Navbar";
 import "react-datepicker/dist/react-datepicker.css";
 import _debounce from "lodash/debounce";
-import { Box, Divider, Modal } from "@mui/material";
+import { Divider} from "@mui/material";
 import { useAuth } from "../../../components/Context";
 import ListItemButton from "@mui/material/ListItemButton";
 import HotelResult from "./HotelResult";
@@ -115,7 +115,7 @@ function Hotels() {
     setFilteredLocations(filtered);
   };
   async function handleHotelSearch() {
-    console.log("Hotel Search Function Called");
+
     if (isFetching || (initialApiCallMade && page < 1)) {
       return;
     }
@@ -132,15 +132,11 @@ function Hotels() {
       });
       if (response.ok) {
         setPage((prevPage) => prevPage + 1);
-        console.log("Hotel data :");
         const hotelData = await response.json();
-        console.log(hotelData);
         setSearchHotelResults((prevData) => [
           ...prevData,
           ...hotelData.data.hotels,
         ]);
-
-        console.log(hotelData.data.hotels);
         if (!initialApiCallMade) {
           setInitialApiCallMade(true);
         }
@@ -148,7 +144,6 @@ function Hotels() {
         const errorData = await response.json();
         setHotelErrorPost(errorData.message);
       }
-      s;
     } catch (error) {
       console.error("Error fetching data:", error);
       setHotelErrorPost("An error occurred. Please try again.");
@@ -199,7 +194,6 @@ function Hotels() {
     setSearchHotelResults([...originalHotelData]);
   }
   useEffect(() => {
-    console.log(searchHotelResults);
     if (!originalHotelData && searchHotelResults) {
       setOriginalHotelData([...searchHotelResults]);
     }
@@ -290,7 +284,7 @@ function Hotels() {
                 </div>
               </div>
             </div>
-            <Divider orientation="vertical" />
+            <Divider orientation="vertical" className=" max-[600px]:hidden"/>
             <div className={Classes.searchCheckOut}>
               <div className={Classes.searchCheckOutClick}>
                 <p className={Classes.headingCheckOut}>Check-out</p>
@@ -307,7 +301,7 @@ function Hotels() {
               <div>
               <p className={Classes.headingCheckOut}>Guests</p>
               </div>
-              <div className="flex justify-evenly items-center">
+              <div className="flex justify-evenly items-center max-[600px]:mb-[5px]">
               <span className=" text-[#000]">{seatHotelCount}</span>
               <span className=" text-[#000]"> Guests(s)</span>
               <i className={Classes.dropDownArrow}></i>
@@ -315,7 +309,7 @@ function Hotels() {
             </div>
           </div>
           {HotelTraveller && 
-          <div className="w-[15%] h-55 absolute bg-slate-50 mt-[11em] p-2 rounded ml-[52em] z-10 shadow-[0_8px_30px_rgb(0,0,0,0.12)]">
+          <div className="w-[15%] max-[600px]:w-[80%] h-55 absolute bg-slate-50 mt-[11em] p-2 rounded lg:ml-[52em] ml-[0] z-10 shadow-[0_8px_30px_rgb(0,0,0,0.12)]">
             <div className=" w-[98%] flex flex-col gap-[5px]">
                 <div className="w-[100%] flex mb-[15px] mt-[5px] justify-between items-center">
                     <div className="flex flex-col justify-center">
@@ -351,7 +345,7 @@ function Hotels() {
           </div>
         </div>
       </div>
-      <div className={Classes.rightHeaderHotel}>
+      {/* <div className={Classes.rightHeaderHotel}>
         <div>
           <h5>hotel</h5>
         </div>
@@ -370,7 +364,7 @@ function Hotels() {
             <option value="rating">Customer Ratings</option>
           </select>
         </div>
-      </div>
+      </div> */}
 
       <div className={Classes.hotelbackgroundSection}>
         <div className={Classes.hotelMainSection}>
@@ -526,17 +520,7 @@ function Hotels() {
                 </div>
               </div>
               <div>
-                {/* <select
-            onChange={(e) => handleSort(e.target.value)}
-            value={sortOption}
-            // open={isOpen}
-            name="selectedFruit"
-          >
-            <option value="">-- Select Option --</option>
-            <option value="price">Price (Low to High)</option>
-            <option value="priceDesc">Price (High to Low)</option>
-            <option value="rating">Customer Ratings</option>
-          </select> */}
+                
               </div>
             </div>
           </div>
