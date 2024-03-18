@@ -94,6 +94,7 @@ function HotelSearchbar(){
                   className={Classes.datePickerCalender}
                   selected={hotelDepartureDate}
                   onChange={(date) => setHotelDepartureDate(date)}
+                  minDate={new Date()}
                   customInput={<CustomInput />}
                 />
               </div>
@@ -106,6 +107,7 @@ function HotelSearchbar(){
               <DatePicker
                 selected={isSelectedDayCheckOut}
                 onChange={(date) => setSelectedDayCheckOut(date)}
+                minDate={new Date()}
                 customInput={<CustomInputCheckout />}
               />
             </div>

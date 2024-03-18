@@ -169,6 +169,7 @@ function Flights() {
               <DatePicker
                 selected={flightdepartureDate}
                 onChange={(date) => setFlightDepartureDate(date)}
+                minDate={new Date()}
                 customInput={<CustomInput />}
               />
             </div>

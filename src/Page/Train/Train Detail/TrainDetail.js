@@ -124,6 +124,7 @@ function TrainDetail(){
               <DatePicker
                 selected={traindepartureDate}
                 onChange={(date) => setTrainDepartureDate(date)}
+                minDate={new Date()}
                 customInput={<CustomInput />}
               />
               <div className="w-[20%] h-[100%] flex items-center">

@@ -124,6 +124,7 @@ function Bus(){
                 <DatePicker
                 selected={busdepartureDate}
                 onChange={(date) => setBusDepartureDate(date)}
+                minDate={new Date()}
                 customInput={<CustomInput />}
               />
               </div>

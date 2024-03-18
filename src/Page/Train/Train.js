@@ -127,6 +127,7 @@ function Train(){
               <DatePicker
                 selected={traindepartureDate}
                 onChange={(date) => setTrainDepartureDate(date)}
+                minDate={new Date()}
                 customInput={<CustomInput />}
               />
             </div>
